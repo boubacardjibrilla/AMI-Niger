@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <!-- ═══════════════════════════════════════════════════════
+       META & SEO — À PROPOS DE A.M.I NIGER
+  ══════════════════════════════════════════════════════════ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"  content="À propos de l'Agence Usman Immobilière (U.M.A Niger) — Notre histoire, notre vision, le mot du directeur M. Usman et les valeurs qui guident notre action à Niamey depuis plus de 10 ans." />
+  <meta name="keywords"     content="à propos UMA Niger, histoire agence Usman, directeur Usman, valeurs immobilier Niger, auto-école La Sagesse histoire, confiance transparence Niamey" />
+  <meta name="author"       content="Agence Usman Immobilière — U.M.A Niger" />
+
+  <meta property="og:title"       content="À Propos — U.M.A Niger | Notre Histoire & Nos Valeurs" />
+  <meta property="og:description" content="Découvrez l'histoire, la vision et les engagements de l'Agence Usman Immobilière et de l'Auto-École La Sagesse à Niamey." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="fr_NE" />
+
+   <link rel="icon" type="image/jpeg" href="assets/logo.png" />
+  <title>À Propos — U.M.A Niger | Notre Histoire, Notre Vision, Nos Engagements</title>
+
+  <!-- ═══════════════════════════════════════════════════════
+       STYLES
+  ══════════════════════════════════════════════════════════ -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'blue-royal':   '#1E3A8A',
+            'blue-mid':     '#2D52C4',
+            'brand-green':  '#16A34A',
+            'green-mid':    '#15803D',
+            'brand-orange': '#EA580C',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans:    ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Styles partagés du projet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <style>
+    /* ════════════════════════════════════════════════════════
+       STYLES SPÉCIFIQUES — PAGE À PROPOS
+    ════════════════════════════════════════════════════════ */
+
+    /* ── Hero À Propos ─────────────────────────────────── */
+    .hero-about {
+      background:
+        linear-gradient(135deg,
+          rgba(15, 23, 42, 0.93)  0%,
+          rgba(30, 58, 138, 0.82) 55%,
+          rgba(22, 163, 74, 0.55) 100%),
+        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80')
+        center / cover no-repeat;
+      min-height: 55vh;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Vague blanche bas hero */
+    .hero-about::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 90px;
+      background: #fff;
+      clip-path: ellipse(60% 100% at 50% 100%);
+    }
+    /* Motif grille architecturale décorative */
+    .hero-about-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    /* ── SECTION MOT DU DIRECTEUR ─────────────────────── */
+
+    /* Cadre photo du directeur */
+    .director-photo-frame {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    /* Double bordure décorative en L */
+    .director-photo-frame::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: -12px;
+      width: 60%; height: 60%;
+      border-top: 4px solid #1E3A8A;
+      border-left: 4px solid #1E3A8A;
+      border-radius: 6px 0 0 0;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .director-photo-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -12px; right: -12px;
+      width: 60%; height: 60%;
+      border-bottom: 4px solid #16A34A;
+      border-right: 4px solid #16A34A;
+      border-radius: 0 0 6px 0;
+      z-index: 10;
+      pointer-events: none;
+    }
+    /* Image ou placeholder photo */
+    .director-photo-frame img,
+    .director-photo-placeholder {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      display: block;
+      border-radius: 20px;
+    }
+    .director-photo-placeholder {
+      background: linear-gradient(145deg, #EFF4FF 0%, #DBEAFE 50%, #E0F2FE 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: #93C5FD;
+    }
+
+    /* Badge "Fondateur" sur la photo */
+    .director-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 20;
+      background: rgba(15,23,42,.88);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 14px;
+      padding: .75rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    /* Guillemets décoratifs */
+    .quote-mark {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 8rem;
+      line-height: 0.7;
+      color: #1E3A8A;
+      opacity: .12;
+      position: absolute;
+      top: -1rem;
+      left: -1.5rem;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Signature manuscrite simulée */
+    .signature-line {
+      display: inline-flex;
+      flex-direction: column;
+      gap: .1rem;
+    }
+    .signature-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.45rem;
+      font-style: italic;
+      color: #1E3A8A;
+      letter-spacing: .02em;
+    }
+    .signature-title {
+      font-size: .72rem;
+      font-weight: 700;
+      color: #64748B;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    /* Ligne de séparation dorée */
+    .gold-divider {
+      width: 56px;
+      height: 3px;
+      background: linear-gradient(90deg, #1E3A8A, #16A34A);
+      border-radius: 2px;
+      margin: 1.25rem 0;
+    }
+
+    /* ── SECTION CHIFFRES CLÉS ─────────────────────────── */
+    .chiffre-card {
+      background: #fff;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all .3s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .chiffre-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--ac, #1E3A8A);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform .35s ease;
+    }
+    .chiffre-card:hover::before { transform: scaleX(1); }
+    .chiffre-card:hover {
+      box-shadow: 0 14px 40px rgba(30,58,138,.10);
+      transform: translateY(-5px);
+    }
+    .chiffre-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1;
+      background: var(--ac, linear-gradient(135deg,#1E3A8A,#2D52C4));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: .4rem;
+    }
+
+    /* ── SECTION ENGAGEMENTS (valeurs) ─────────────────── */
+    .engagement-section {
+      background: #0B1A3E;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Motif pois décoratif */
+    .engagement-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    /* Blob lumineux en fond */
+    .engagement-section::after {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(22,163,74,.14) 0%, transparent 70%);
+      top: -100px; right: -150px;
+      pointer-events: none;
+    }
+
+    /* Carte engagement */
+    .engagement-card {
+      position: relative;
+      border-radius: 22px;
+      padding: 2.25rem 2rem;
+      transition: all .35s cubic-bezier(.4,0,.2,1);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      backdrop-filter: blur(4px);
+      cursor: default;
+    }
+    .engagement-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 22px;
+      background: var(--grad, linear-gradient(135deg, rgba(30,58,138,.6), rgba(45,82,196,.3)));
+      opacity: 0;
+      transition: opacity .35s ease;
+    }
+    .engagement-card:hover::before { opacity: 1; }
+    .engagement-card:hover {
+      border-color: rgba(255,255,255,.18);
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 24px 60px rgba(0,0,0,.35);
+    }
+    /* Numéro de fond décoratif */
+    .engagement-num {
+      position: absolute;
+      bottom: -20px; right: -10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      font-weight: 900;
+      color: rgba(255,255,255,.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      transition: color .35s;
+    }
+    .engagement-card:hover .engagement-num { color: rgba(255,255,255,.07); }
+
+    /* Icône engagement */
+    .engagement-icon {
+      width: 64px; height: 64px;
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem;
+      margin-bottom: 1.4rem;
+      position: relative; z-index: 1;
+      transition: transform .3s ease;
+    }
+    .engagement-card:hover .engagement-icon { transform: scale(1.1) rotate(-5deg); }
+
+    /* Tag engagement */
+    .engagement-tag {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .68rem; font-weight: 900;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .3rem .8rem;
+      border-radius: 50px;
+      margin-bottom: .9rem;
+      position: relative; z-index: 1;
+    }
+
+    /* ── Timeline histoire ─────────────────────────────── */
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+      position: relative;
+    }
+    .timeline-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 38px;
+      top: 48px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #1E3A8A22, transparent);
+    }
+    .timeline-year {
+      width: 76px; height: 76px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #EFF4FF, #DBEAFE);
+      border: 2px solid #C7D7FD;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column;
+      flex-shrink: 0;
+      transition: all .3s ease;
+    }
+    .timeline-item:hover .timeline-year {
+      background: linear-gradient(135deg, #1E3A8A, #2D52C4);
+      border-color: #1E3A8A;
+    }
+    .timeline-year span {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1rem;
+      color: #1E3A8A;
+      line-height: 1;
+      transition: color .3s;
+    }
+    .timeline-item:hover .timeline-year span { color: #fff; }
+    .timeline-content {
+      padding-top: .4rem;
+    }
+
+    /* ── Bande CTA À Propos ───────────────────────────── */
+    .cta-about {
+      background: linear-gradient(135deg, #1E3A8A 0%, #162d6e 100%);
+      position: relative; overflow: hidden;
+    }
+    .cta-about::before {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.04);
+      top: -150px; right: -80px;
+    }
+    .cta-about::after {
+      content: '';
+      position: absolute;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: rgba(22,163,74,.10);
+      bottom: -100px; left: -50px;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-slate-800 bg-white">
+
+  <!-- ═══════════════════════════════════════════════════════
+       HEADER — IDENTIQUE AUX AUTRES PAGES
+       (js/main.js posera nav-active sur "À Propos")
+  ══════════════════════════════════════════════════════════ -->
+  <header id="main-header"
+          class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100"
+          role="banner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-18 py-3">
+
+        <!-- LOGO -->
+        <a href="index.html" class="flex items-center gap-3 group" aria-label="Accueil — A.M.I Niger">
+          <div class="relative">
+            <div class="w-11 h-11 bg-blue-royal rounded-xl flex items-center justify-center shadow-md
+                        group-hover:shadow-lg transition-all duration-300 group-hover:-rotate-3">
+              <span class="text-white font-display font-bold text-lg leading-none">U.M.A</span>
+            </div>
+            <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-brand-green rounded-full border-2 border-white"></div>
+          </div>
+          <div class="leading-tight">
+            <div class="font-display font-bold text-blue-royal text-base leading-none">
+              U.M.A <span class="text-slate-400 font-sans font-normal text-xs">Niger</span>
+            </div>
+            <div class="text-[10px] font-semibold text-brand-green tracking-wide uppercase leading-none mt-0.5">
+              Immobilier · Auto-École
+            </div>
+          </div>
+        </a>
+
+        <!-- NAVIGATION DESKTOP -->
+        <nav class="hidden lg:flex items-center gap-1" aria-label="Navigation principale">
+          <a href="index.html" data-nav-link
+             class="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-blue-royal rounded-lg hover:bg-blue-50 transition-all duration-200">
+            Accueil
+          </a>
+          <a href="immobilier.html" data-nav-link
+             class="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-blue-royal rounded-lg hover:bg-blue-50 transition-all duration-200">
+            Immobilier
+          </a>
+          <a href="auto-ecole.html" data-nav-link
+             class="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-brand-green rounded-lg hover:bg-green-50 transition-all duration-200">
+            Auto-École
+          </a>
+          <a href="a-propos.html" data-nav-link
+             class="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-blue-royal rounded-lg hover:bg-blue-50 transition-all duration-200">
+            À Propos
+          </a>
+          <a href="contact.html" data-nav-link
+             class="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-blue-royal rounded-lg hover:bg-blue-50 transition-all duration-200">
+            Contact
+          </a>
+        </nav>
+
+        <!-- CTA DESKTOP + BURGER -->
+        <div class="flex items-center gap-3">
+          <a href="tel:+22798127235"
+             class="hidden lg:inline-flex items-center gap-2 bg-blue-royal text-white px-4 py-2.5 rounded-xl
+                    font-semibold text-sm hover:bg-blue-mid transition-all duration-200 shadow-sm hover:shadow-md">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/>
+            </svg>
+            Nous appeler
+          </a>
+          <button id="burger-btn"
+                  class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+                  aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg id="burger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENU MOBILE -->
+    <div id="mobile-menu"
+         class="hidden opacity-0 -translate-y-4 lg:hidden bg-white border-t border-slate-100 shadow-xl transition-all duration-300"
+         role="navigation" aria-label="Menu mobile">
+      <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
+        <a href="index.html" data-nav-link
+           class="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-slate-700 rounded-xl hover:bg-blue-50 hover:text-blue-royal transition-colors">
+          <svg class="w-5 h-5 text-blue-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          Accueil
+        </a>
+        <a href="immobilier.html" data-nav-link
+           class="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-slate-700 rounded-xl hover:bg-blue-50 hover:text-blue-royal transition-colors">
+          <svg class="w-5 h-5 text-blue-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+          Immobilier
+        </a>
+        <a href="auto-ecole.html" data-nav-link
+           class="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-slate-700 rounded-xl hover:bg-green-50 hover:text-brand-green transition-colors">
+          <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zm10 0a2 2 0 11-4 0 2 2 0 014 0zM3 11l1.5-4.5A2 2 0 016.4 5h11.2a2 2 0 011.9 1.5L21 11M3 11h18M3 11v4a1 1 0 001 1h1m14-5v5a1 1 0 01-1 1h-1"/>
+          </svg>
+          Auto-École "La Sagesse"
+        </a>
+        <a href="a-propos.html" data-nav-link
+           class="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-slate-700 rounded-xl hover:bg-blue-50 hover:text-blue-royal transition-colors">
+          <svg class="w-5 h-5 text-blue-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          À Propos
+        </a>
+        <a href="contact.html" data-nav-link
+           class="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-slate-700 rounded-xl hover:bg-blue-50 hover:text-blue-royal transition-colors">
+          <svg class="w-5 h-5 text-blue-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          Contact & Localisation
+        </a>
+        <div class="pt-3 border-t border-slate-100 mt-2 flex flex-col gap-2">
+          <a href="tel:+22798127235"
+             class="flex items-center justify-center gap-2 bg-blue-royal text-white px-4 py-3 rounded-xl font-bold text-sm hover:bg-blue-mid transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/>
+            </svg>
+            +227 88 49 03 99
+          </a>
+          <a href="tel:+22793340434"
+             class="flex items-center justify-center gap-2 border border-slate-200 text-slate-700 px-4 py-3 rounded-xl font-semibold text-sm hover:bg-slate-50 transition-colors">
+            +227 88 49 03 99
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- /HEADER -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 1 — HERO "À PROPOS"
+  ══════════════════════════════════════════════════════════ -->
+  <section class="hero-about flex items-center" aria-label="Bannière À Propos">
+    <div class="hero-about-grid" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-28 w-full">
+
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 mb-6" aria-label="Fil d'ariane">
+        <a href="index.html"
+           class="text-white/60 hover:text-white text-sm font-medium transition-colors">Accueil</a>
+        <span class="text-white/30 text-sm">/</span>
+        <span class="text-white/90 text-sm font-semibold">À Propos</span>
+      </nav>
+
+      <div class="max-w-2xl">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20
+                    backdrop-blur-sm text-white text-xs font-bold tracking-widest uppercase
+                    px-4 py-2 rounded-full mb-6">
+          <i class="fa-solid fa-building-user text-brand-orange"></i>
+          Notre histoire & nos valeurs
+        </div>
+
+        <h1 class="font-display text-white text-4xl sm:text-5xl lg:text-[3.4rem] font-bold leading-tight mb-5">
+          Une Agence Bâtie
+          <span class="block text-transparent bg-clip-text"
+                style="background-image: linear-gradient(90deg, #FCD34D, #FB923C);">
+            sur la Confiance
+          </span>
+          <span class="block text-white/85 text-3xl sm:text-4xl">depuis plus de 10 ans.</span>
+        </h1>
+
+        <p class="text-white/75 text-lg leading-relaxed max-w-xl">
+          Derrière l'Agence Maïto Immobilière et l'Auto-École La Sagesse,
+          il y a des hommes et des femmes engagés chaque jour
+          au service des familles et des entrepreneurs de <strong class="text-white">Niamey</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- /HERO -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 2 — LE MOT DU DIRECTEUR
+  ══════════════════════════════════════════════════════════ -->
+  <section id="directeur" class="py-24 bg-white" aria-labelledby="directeur-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- En-tête centré -->
+      <div class="text-center mb-16" data-reveal>
+        <div class="section-badge mx-auto w-fit">
+          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
+          Message de la Direction
+        </div>
+        <h2 id="directeur-title"
+            class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mt-3 mb-4">
+          Le Mot du <span class="text-blue-royal">Directeur Général</span>
+        </h2>
+        <div class="section-divider mx-auto"></div>
+      </div>
+
+      <!-- Grille photo + texte -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <!-- ─── Colonne GAUCHE : Photo officielle ─── -->
+        <div class="relative" data-reveal>
+
+          <!-- Cadre photo avec double bordure décorative -->
+          <div class="director-photo-frame">
+
+            <!--
+              ╔══════════════════════════════════════════════════╗
+              ║  PHOTO OFFICIELLE DU BUREAU / DIRECTEUR          ║
+              ║  Fichier attendu : assets/551782909_...n.jpg     ║
+              ║  Si absent → le placeholder SVG s'affiche        ║
+              ╚══════════════════════════════════════════════════╝
+            -->
+            <img src="assets/image.png"
+                 alt="M. Maïto — Fondateur & Directeur Général de l'Agence Maïto Immobilière"
+                 class="w-full h-[460px] object-cover rounded-[20px] block"
+                 id="director-img"
+                 onerror="this.style.display='none'; document.getElementById('director-placeholder').style.display='flex';" />
+
+            <!-- Placeholder visible si l'image n'est pas trouvée -->
+            <div id="director-placeholder"
+                 class="director-photo-placeholder"
+                 style="display:none; height:460px; border-radius:20px;">
+              <div class="w-28 h-28 rounded-full bg-blue-100 border-4 border-blue-200
+                          flex items-center justify-center">
+                <i class="fa-solid fa-user-tie text-blue-royal text-5xl"></i>
+              </div>
+              <div class="text-center">
+                <div class="font-display font-bold text-blue-royal text-xl">M. Usman</div>
+                <div class="text-slate-400 text-sm mt-1">Photo officielle</div>
+                <div class="text-slate-300 text-xs mt-2 italic">
+                  <img src="assets/Directuer.jpg" alt="">
+                </div>
+              </div>
+            </div>
+
+            <!-- Badge identité sur la photo -->
+            <div class="director-badge">
+              <div class="w-10 h-10 rounded-xl bg-blue-royal flex items-center justify-center flex-shrink-0">
+                <span class="text-white font-display font-bold text-sm">M</span>
+              </div>
+              <div>
+                <div class="text-white font-bold text-sm leading-none">M. Usman</div>
+                <div class="text-white/60 text-[11px] mt-0.5">Fondateur & Directeur Général</div>
+              </div>
+              <div class="ml-2 flex flex-col items-end gap-0.5">
+                <div class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pastilles décoratives flottantes -->
+          <div class="absolute -bottom-6 -left-6 w-28 h-28 bg-blue-50 rounded-3xl -z-10
+                      border-2 border-blue-100" aria-hidden="true"></div>
+          <div class="absolute -top-6 -right-6 w-20 h-20 bg-green-50 rounded-2xl -z-10
+                      border-2 border-green-100" aria-hidden="true"></div>
+
+          <!-- Petit encart chiffre sous la photo -->
+          <div class="mt-8 grid grid-cols-3 gap-3">
+            <div class="text-center p-3 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="font-display font-bold text-blue-royal text-xl">10+</div>
+              <div class="text-slate-500 text-[11px] font-medium mt-0.5">Ans d'expérience</div>
+            </div>
+            <div class="text-center p-3 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="font-display font-bold text-blue-royal text-xl">2</div>
+              <div class="text-slate-500 text-[11px] font-medium mt-0.5">Activités majeures</div>
+            </div>
+            <div class="text-center p-3 bg-slate-50 rounded-2xl border border-slate-200">
+              <div class="font-display font-bold text-blue-royal text-xl">500+</div>
+              <div class="text-slate-500 text-[11px] font-medium mt-0.5">Clients servis</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─── Colonne DROITE : Texte du directeur ─── -->
+        <div class="relative pt-4" data-reveal data-delay="2">
+
+          <!-- Grand guillemet décoratif -->
+          <span class="quote-mark" aria-hidden="true">"</span>
+
+          <!-- Badge section -->
+          <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-royal
+                      text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded-full mb-5 border border-blue-100">
+            <i class="fa-solid fa-pen-nib text-[10px]"></i>
+            Mot du Directeur
+          </div>
+
+          <!-- Accroche -->
+          <h3 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mb-2 leading-snug">
+            «&nbsp;Construire la confiance,<br/>
+            <span class="text-blue-royal">une transaction à la fois.&nbsp;»
+            </span>
+          </h3>
+
+          <div class="gold-divider"></div>
+
+          <!-- Corps du message — paragraphes signés -->
+          <div class="space-y-5 text-slate-600 leading-relaxed text-[0.95rem]">
+
+            <p>
+              Lorsque j'ai fondé l'<strong class="text-slate-800">Agence USMAN Immobilière</strong>
+              il y a plus de dix ans, ma conviction était simple : les habitants de Niamey
+              méritaient une agence immobilière qui leur ressemble — honnête, accessible
+              et profondément ancrée dans les réalités locales.
+            </p>
+
+            <p>
+              Le marché nigérien est en pleine mutation. Les besoins en logement,
+              en foncier et en mobilité sont immenses. C'est pourquoi, naturellement,
+              nous avons étendu notre mission en créant l'
+              <strong class="text-slate-800">Auto-École «&nbsp;La Sagesse&nbsp;»</strong> :
+              parce que la sécurité routière et l'accès à la mobilité sont des enjeux
+              de développement, pas seulement des services.
+            </p>
+
+            <p>
+              Aujourd'hui, notre équipe s'engage chaque matin avec la même exigence :
+              <strong class="text-slate-800">écouter avant de conseiller</strong>,
+              vérifier avant de promettre, et accompagner jusqu'à la satisfaction complète.
+              Notre réputation est notre bien le plus précieux — et elle se construit
+              chaque jour, un client à la fois.
+            </p>
+
+            <p>
+              À vous qui nous faites l'honneur de votre confiance,
+              je m'engage personnellement à ce que chaque expérience avec A.M.I Niger
+              soit à la hauteur de vos ambitions et de nos valeurs.
+            </p>
+
+          </div>
+
+          <!-- Signature -->
+          <div class="mt-8 flex items-end gap-5">
+            <!-- Trait de signature simulé -->
+            <div>
+              <svg viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg"
+                   class="w-44 h-14" aria-hidden="true">
+                <path d="M10,45 C30,20 50,10 80,30 C100,45 110,18 140,25 C155,28 165,38 170,42"
+                      fill="none" stroke="#1E3A8A" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round"
+                      stroke-dasharray="220" stroke-dashoffset="0"
+                      style="animation: draw-sig 2s ease forwards 0.5s;">
+                </path>
+                <path d="M20,48 C45,30 70,22 95,38"
+                      fill="none" stroke="#1E3A8A" stroke-width="1.5"
+                      stroke-linecap="round" opacity="0.5">
+                </path>
+              </svg>
+              <style>
+                @keyframes draw-sig {
+                  from { stroke-dashoffset: 220; }
+                  to   { stroke-dashoffset: 0; }
+                }
+              </style>
+              <div class="signature-line mt-1">
+                <span class="signature-name">M. Maïto</span>
+                <span class="signature-title">Fondateur & Directeur Général — A.M.I Niger</span>
+              </div>
+            </div>
+
+            <!-- Cachet rond décoratif -->
+            <div class="flex-shrink-0 w-16 h-16 rounded-full border-2 border-blue-royal/20
+                        flex flex-col items-center justify-center text-center bg-blue-50 mb-1"
+                 aria-hidden="true">
+              <span class="text-blue-royal font-display font-bold text-lg leading-none">AMI</span>
+              <span class="text-blue-royal/60 text-[8px] font-bold tracking-wider uppercase leading-none mt-0.5">Niger</span>
+            </div>
+          </div>
+
+          <!-- Lien vers contact -->
+          <div class="mt-8 pt-6 border-t border-slate-100">
+            <a href="contact.html"
+               class="inline-flex items-center gap-2 text-blue-royal font-bold text-sm
+                      hover:gap-3 transition-all duration-200 group">
+              Prendre contact avec la direction
+              <i class="fa-solid fa-arrow-right transition-transform duration-200 group-hover:translate-x-1"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /MOT DU DIRECTEUR -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 3 — CHIFFRES CLÉS (compteurs animés)
+  ══════════════════════════════════════════════════════════ -->
+  <section class="py-16 bg-slate-50" aria-label="Chiffres clés A.M.I Niger">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <div class="chiffre-card" style="--ac:linear-gradient(135deg,#1E3A8A,#2D52C4)" data-reveal data-delay="1">
+          <div class="chiffre-num" style="--ac:linear-gradient(135deg,#1E3A8A,#2D52C4)">
+            <span data-count="10" data-suffix="+">10+</span>
+          </div>
+          <div class="text-slate-500 text-sm font-semibold mt-2">Années d'expérience</div>
+          <div class="text-slate-400 text-xs mt-1">Depuis notre création à Niamey</div>
+        </div>
+
+        <div class="chiffre-card" style="--ac:linear-gradient(135deg,#16A34A,#22C55E)" data-reveal data-delay="2">
+          <div class="chiffre-num" style="--ac:linear-gradient(135deg,#16A34A,#22C55E)">
+            <span data-count="500" data-suffix="+">500+</span>
+          </div>
+          <div class="text-slate-500 text-sm font-semibold mt-2">Clients satisfaits</div>
+          <div class="text-slate-400 text-xs mt-1">En immobilier & auto-école</div>
+        </div>
+
+        <div class="chiffre-card" style="--ac:linear-gradient(135deg,#EA580C,#F97316)" data-reveal data-delay="3">
+          <div class="chiffre-num" style="--ac:linear-gradient(135deg,#EA580C,#F97316)">
+            <span data-count="200" data-suffix="+">200+</span>
+          </div>
+          <div class="text-slate-500 text-sm font-semibold mt-2">Permis de conduire</div>
+          <div class="text-slate-400 text-xs mt-1">Délivrés par La Sagesse</div>
+        </div>
+
+        <div class="chiffre-card" style="--ac:linear-gradient(135deg,#7C3AED,#A78BFA)" data-reveal data-delay="4">
+          <div class="chiffre-num" style="--ac:linear-gradient(135deg,#7C3AED,#A78BFA)">
+            <span data-count="150" data-suffix="+">150+</span>
+          </div>
+          <div class="text-slate-500 text-sm font-semibold mt-2">Biens gérés</div>
+          <div class="text-slate-400 text-xs mt-1">Parcelles, maisons, appartements</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- /CHIFFRES CLÉS -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 4 — NOTRE HISTOIRE (frise chronologique)
+  ══════════════════════════════════════════════════════════ -->
+  <section class="py-20 bg-white" aria-labelledby="histoire-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <!-- Colonne gauche — texte intro -->
+        <div data-reveal>
+          <div class="section-badge">
+            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
+            Notre Parcours
+          </div>
+          <h2 id="histoire-title"
+              class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mt-3 mb-4">
+            Une Décennie au<br/>
+            <span class="text-blue-royal">Service de Niamey</span>
+          </h2>
+          <div class="section-divider"></div>
+          <p class="text-slate-500 leading-relaxed mb-6">
+            L'Agence Maïto Immobilière est née d'une vision : offrir aux Nigériens
+            un partenaire immobilier de confiance, dans un secteur souvent opaque.
+            Voici les grandes étapes qui ont forgé notre identité.
+          </p>
+
+          <!-- Citation encadrée -->
+          <blockquote class="border-l-4 border-blue-royal pl-5 py-2 bg-blue-50 rounded-r-xl">
+            <p class="text-slate-700 text-sm italic leading-relaxed">
+              "La croissance d'une entreprise se mesure non pas à son chiffre d'affaires,
+              mais à la confiance que lui accordent ses clients et sa communauté."
+            </p>
+            <footer class="mt-2 text-blue-royal text-xs font-bold">— M. Maïto, Fondateur</footer>
+          </blockquote>
+        </div>
+
+        <!-- Colonne droite — timeline -->
+        <div class="space-y-0" data-reveal data-delay="2">
+
+          <!-- Item 2013 -->
+          <div class="timeline-item" data-reveal data-delay="1">
+            <div class="timeline-year">
+              <span>2013</span>
+            </div>
+            <div class="timeline-content">
+              <h4 class="font-bold text-slate-900 text-base mb-1">
+                Fondation de l'Agence
+              </h4>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                M. Maïto crée l'Agence Maïto Immobilière dans le quartier Maison Économique,
+                avec une équipe de 3 personnes et une conviction : la transparence comme
+                marque de fabrique.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2016 -->
+          <div class="timeline-item" data-reveal data-delay="2">
+            <div class="timeline-year">
+              <span>2016</span>
+            </div>
+            <div class="timeline-content">
+              <h4 class="font-bold text-slate-900 text-base mb-1">
+                Expansion du portefeuille foncier
+              </h4>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                Fort d'une réputation naissante, l'agence diversifie ses offres :
+                vente d'îlots, gestion locative et conseil en investissement immobilier
+                pour les diasporas nigériennes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2019 -->
+          <div class="timeline-item" data-reveal data-delay="3">
+            <div class="timeline-year">
+              <span>2019</span>
+            </div>
+            <div class="timeline-content">
+              <h4 class="font-bold text-slate-900 text-base mb-1">
+                Création de l'Auto-École «&nbsp;La Sagesse&nbsp;»
+              </h4>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                Face aux besoins croissants en mobilité urbaine, A.M.I Niger lance
+                son auto-école agréée, avec des moniteurs certifiés et une flotte
+                de véhicules modernes à doubles commandes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2022 -->
+          <div class="timeline-item" data-reveal data-delay="4">
+            <div class="timeline-year">
+              <span>2022</span>
+            </div>
+            <div class="timeline-content">
+              <h4 class="font-bold text-slate-900 text-base mb-1">
+                Cap des 400 clients & 150 permis
+              </h4>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                L'agence franchit un cap symbolique. Le bouche-à-oreille devient
+                le principal vecteur de croissance, signe d'une confiance durablement installée
+                dans l'écosystème niameyien.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item Aujourd'hui -->
+          <div class="timeline-item" data-reveal data-delay="1">
+            <div class="timeline-year" style="background:linear-gradient(135deg,#1E3A8A,#2D52C4); border-color:#1E3A8A;">
+              <span style="color:#fff; font-size:.75rem;">Aujourd-<br/>hui</span>
+            </div>
+            <div class="timeline-content">
+              <h4 class="font-bold text-slate-900 text-base mb-1">
+                500+ clients · Un site web · Une nouvelle étape
+                <span class="ml-2 inline-block text-[10px] font-black bg-brand-orange text-white px-2 py-0.5 rounded-full align-middle">Nouveau</span>
+              </h4>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                A.M.I Niger se dote d'une présence numérique moderne pour servir encore mieux
+                ses clients, faciliter les prises de contact et rayonner
+                au-delà des frontières de Niamey.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /HISTOIRE -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 5 — NOS 5 ENGAGEMENTS (valeurs de l'entreprise)
+  ══════════════════════════════════════════════════════════ -->
+  <section id="engagements" class="engagement-section py-24" aria-labelledby="engagements-title">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- En-tête -->
+      <div class="text-center mb-14" data-reveal>
+        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/18
+                    text-white text-xs font-bold tracking-widest uppercase px-4 py-2
+                    rounded-full mb-5">
+          <i class="fa-solid fa-star text-brand-orange text-[10px]"></i>
+          Notre ADN
+        </div>
+        <h2 id="engagements-title"
+            class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
+          Les 5 Engagements
+          <span class="block text-transparent bg-clip-text"
+                style="background-image: linear-gradient(90deg, #FCD34D, #FB923C);">
+            d'U.M.A Niger
+          </span>
+        </h2>
+        <p class="text-white/60 max-w-lg mx-auto text-sm leading-relaxed">
+          Ces cinq valeurs ne sont pas que des mots — elles guident chaque décision,
+          chaque échange et chaque service que nous rendons à nos clients.
+        </p>
+      </div>
+
+      <!-- Grille 5 engagements : 3 + 2 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
+
+        <!-- ── Engagement 1 : SÉCURITÉ ── -->
+        <div class="engagement-card"
+             style="--grad: linear-gradient(135deg, rgba(30,58,138,.65), rgba(45,82,196,.35))"
+             data-reveal data-delay="1">
+          <span class="engagement-num" aria-hidden="true">01</span>
+
+          <div class="engagement-tag bg-blue-900/60 text-blue-200 border border-blue-700/40">
+            <i class="fa-solid fa-shield-halved text-[10px]"></i>
+            Engagement #1
+          </div>
+
+          <div class="engagement-icon bg-blue-900/50 border border-blue-700/30 text-blue-300">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+
+          <h3 class="font-display font-bold text-white text-2xl mb-3 relative z-10">
+            Sécurité
+          </h3>
+
+          <p class="text-white/65 text-sm leading-relaxed relative z-10 mb-4">
+            La sécurité de vos transactions et de votre formation à la conduite
+            est notre priorité absolue. Chaque document foncier est vérifié,
+            chaque leçon dispensée dans un cadre maîtrisé avec des véhicules
+            conformes aux normes.
+          </p>
+
+          <!-- Indicateurs -->
+          <div class="flex flex-wrap gap-2 relative z-10">
+            <span class="text-[11px] text-white/50 bg-white/08 border border-white/10 px-2.5 py-1 rounded-full font-medium">
+              <i class="fa-solid fa-file-shield mr-1"></i>Titres fonciers vérifiés
+            </span>
+            <span class="text-[11px] text-white/50 bg-white/08 border border-white/10 px-2.5 py-1 rounded-full font-medium">
+              <i class="fa-solid fa-car-burst mr-1"></i>Doubles commandes
+            </span>
+          </div>
+        </div>
+
+        <!-- ── Engagement 2 : TRANSPARENCE ── -->
+        <div class="engagement-card"
+             style="--grad: linear-gradient(135deg, rgba(22,163,74,.60), rgba(34,197,94,.30))"
+             data-reveal data-delay="2">
+          <span class="engagement-num" aria-hidden="true">02</span>
+
+          <div class="engagement-tag bg-green-900/60 text-green-200 border border-green-700/40">
+            <i class="fa-solid fa-eye text-[10px]"></i>
+            Engagement #2
+          </div>
+
+          <div class="engagement-icon bg-green-900/50 border border-green-700/30 text-green-300">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+
+          <h3 class="font-display font-bold text-white text-2xl mb-3 relative z-10">
+            Transparence
+          </h3>
+
+          <p class="text-white/65 text-sm leading-relaxed relative z-10 mb-4">
+            Aucun frais caché, aucune promesse non tenue. Chaque tarif est annoncé
+            clairement, chaque étape d'une transaction expliquée. Vous êtes informé
+            à chaque moment — c'est notre engagement envers votre sérénité.
+          </p>
+
+          <div class="flex flex-wrap gap-2 relative z-10">
+            <span class="text-[11px] text-white/50 bg-white/08 border border-white/10 px-2.5 py-1 rounded-full font-medium">
+              <i class="fa-solid fa-receipt mr-1"></i>Tarifs affichés
+            </span>
+            <span class="text-[11px] text-white/50 bg-white/08 border border-white/10 px-2.5 py-1 rounded-full font-medium">
+              <i class="fa-solid fa-handshake mr-1"></i>Contrats clairs
+            </span>
+          </div>
+        </div>
+
+        <!-- ── Engagement 3 : RAPIDITÉ ── -->
+        <div class="engagement-card"
+             style="--grad: linear-gradient(135deg, rgba(234,88,12,.60), rgba(249,115,22,.30))"
+             data-reveal data-delay="3">
+          <span class="engagement-num" aria-hidden="true">03</span>
+
+          <div class="engagement-tag bg-orange-900/60 text-orange-200 border border-orange-700/40">
+            <i class="fa-solid fa-bolt text-[10px]"></i>
+            Engagement #3
+          </div>
+
+          <div class="engagement-icon bg-orange-900/50 border border-orange-700/30 text-orange-300">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+
+          <h3 class="font-display font-bold text-white text-2xl mb-3 relative z-10">
+            Rapidité
+          </h3>
+
+          <p class="text-white/65 text-sm leading-relaxed relative z-10 mb-4">
+            Votre temps est précieux. Nous nous engageons à répondre à vos demandes
+            dans les meilleurs délais — que ce soit pour une visite de bien,
+            une inscription à l'auto-école ou une simple question sur WhatsApp.
+          </p>
+
+          <div class="flex flex-wrap gap-2 relative z-10">
+            <span class="text-[11px] text-white/50 bg-white/08 border border-white/10 px-2.5 py-1 rounded-full font-medium">
+              <i class="fa-brands fa-whatsapp mr-1"></i>Réponse rapide
+            </span>
+            <span class="text-[11px] text-white/50 bg-white/08 border border-white/10 px-2.5 py-1 rounded-full font-medium">
+              <i class="fa-solid fa-clock mr-1"></i>7j/7
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Ligne 2 : 2 grandes cartes élargies -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+        <!-- ── Engagement 4 : PONCTUALITÉ ── -->
+        <div class="engagement-card"
+             style="--grad: linear-gradient(135deg, rgba(124,58,237,.60), rgba(167,139,250,.30))"
+             data-reveal data-delay="1">
+          <span class="engagement-num" aria-hidden="true">04</span>
+
+          <div class="flex items-start gap-5">
+            <div>
+              <div class="engagement-tag bg-purple-900/60 text-purple-200 border border-purple-700/40">
+                <i class="fa-solid fa-clock-rotate-left text-[10px]"></i>
+                Engagement #4
+              </div>
+              <div class="engagement-icon bg-purple-900/50 border border-purple-700/30 text-purple-300">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+              </div>
+            </div>
+            <div class="flex-1 pt-1">
+              <h3 class="font-display font-bold text-white text-2xl mb-3 relative z-10">
+                Ponctualité
+              </h3>
+              <p class="text-white/65 text-sm leading-relaxed relative z-10 mb-4">
+                Un rendez-vous fixé est un rendez-vous honoré. Nos agents immobiliers
+                et nos moniteurs respectent scrupuleusement les horaires convenus
+                avec nos clients. La ponctualité est une marque de respect
+                que nous ne transigeons pas.
+              </p>
+              <div class="flex flex-wrap gap-2 relative z-10">
+                <span class="text-[11px] text-white/50 bg-white/08 border border-white/10 px-2.5 py-1 rounded-full font-medium">
+                  <i class="fa-solid fa-calendar-check mr-1"></i>RDV respectés
+                </span>
+                <span class="text-[11px] text-white/50 bg-white/08 border border-white/10 px-2.5 py-1 rounded-full font-medium">
+                  <i class="fa-solid fa-bell mr-1"></i>Rappels envoyés
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Engagement 5 : FIABILITÉ ── -->
+        <div class="engagement-card"
+             style="--grad: linear-gradient(135deg, rgba(15,23,42,.80), rgba(30,58,138,.50))"
+             data-reveal data-delay="2">
+          <span class="engagement-num" aria-hidden="true">05</span>
+
+          <div class="flex items-start gap-5">
+            <div>
+              <div class="engagement-tag bg-slate-800/80 text-slate-200 border border-slate-600/40">
+                <i class="fa-solid fa-medal text-[10px]"></i>
+                Engagement #5
+              </div>
+              <div class="engagement-icon bg-slate-800/70 border border-slate-600/40 text-slate-200">
+                <i class="fa-solid fa-medal"></i>
+              </div>
+            </div>
+            <div class="flex-1 pt-1">
+              <h3 class="font-display font-bold text-white text-2xl mb-3 relative z-10">
+                Fiabilité
+              </h3>
+              <p class="text-white/65 text-sm leading-relaxed relative z-10 mb-4">
+                Une promesse d'A.M.I Niger est une promesse tenue.
+                Notre fiabilité se mesure à notre taux de satisfaction client,
+                à nos 10 ans de présence continue sur le marché niameyien
+                et à la croissance organique de notre portefeuille
+                par recommandation.
+              </p>
+              <div class="flex flex-wrap gap-2 relative z-10">
+                <span class="text-[11px] text-white/50 bg-white/08 border border-white/10 px-2.5 py-1 rounded-full font-medium">
+                  <i class="fa-solid fa-star mr-1"></i>Agrément officiel
+                </span>
+                <span class="text-[11px] text-white/50 bg-white/08 border border-white/10 px-2.5 py-1 rounded-full font-medium">
+                  <i class="fa-solid fa-users mr-1"></i>500+ clients
+                </span>
+                <span class="text-[11px] text-white/50 bg-white/08 border border-white/10 px-2.5 py-1 rounded-full font-medium">
+                  <i class="fa-solid fa-trophy mr-1"></i>10 ans de marché
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /grille 2 -->
+
+      <!-- Serment d'engagement centré -->
+      <div class="mt-14 text-center" data-reveal>
+        <div class="inline-block bg-white/06 border border-white/12 rounded-2xl
+                    px-8 py-6 backdrop-blur-sm max-w-2xl">
+          <i class="fa-solid fa-quote-left text-white/20 text-2xl mb-3 block"></i>
+          <p class="text-white/75 text-base leading-relaxed italic font-light">
+            "Ces cinq engagements ne sont pas une communication — ils sont
+            notre contrat moral avec chaque client qui pousse la porte d'A.M.I Niger."
+          </p>
+          <div class="mt-4 flex items-center justify-center gap-3">
+            <div class="w-8 h-0.5 bg-white/20 rounded"></div>
+            <span class="text-white/50 text-xs font-bold uppercase tracking-widest">M. Maïto</span>
+            <div class="w-8 h-0.5 bg-white/20 rounded"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- /ENGAGEMENTS -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 6 — NOTRE ÉQUIPE (aperçu)
+  ══════════════════════════════════════════════════════════ -->
+  <section class="py-20 bg-white" aria-labelledby="equipe-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-12" data-reveal>
+        <div class="section-badge mx-auto w-fit">
+          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
+          Notre Équipe
+        </div>
+        <h2 id="equipe-title"
+            class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mt-3 mb-4">
+          Des Femmes &amp; des Hommes
+          <span class="text-blue-royal">Engagés</span>
+        </h2>
+        <div class="section-divider mx-auto"></div>
+        <p class="text-slate-500 max-w-md mx-auto text-sm">
+          Notre force, c'est notre équipe. Chacun apporte son expertise
+          avec passion et professionnalisme au quotidien.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
+
+        <!-- Membre 1 — Directeur -->
+        <div class="text-center group" data-reveal data-delay="1">
+          <div class="relative mx-auto w-20 h-20 mb-3">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200
+                        border-2 border-blue-200 group-hover:border-blue-royal
+                        flex items-center justify-center transition-all duration-300
+                        group-hover:scale-105 group-hover:shadow-lg">
+              <span class="text-blue-royal font-display font-bold text-xl">M</span>
+            </div>
+            <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-brand-orange rounded-full
+                        border-2 border-white flex items-center justify-center">
+              <i class="fa-solid fa-crown text-white text-[8px]"></i>
+            </div>
+          </div>
+          <div class="font-bold text-slate-900 text-sm">M. Maïto</div>
+          <div class="text-blue-royal text-[11px] font-semibold mt-0.5">Directeur Général</div>
+        </div>
+
+        <!-- Membre 2 -->
+        <div class="text-center group" data-reveal data-delay="2">
+          <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-100 to-green-200
+                      border-2 border-green-200 group-hover:border-brand-green
+                      flex items-center justify-center mx-auto mb-3
+                      transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg">
+            <span class="text-brand-green font-display font-bold text-xl">AM</span>
+          </div>
+          <div class="font-bold text-slate-900 text-sm">Amadou M.</div>
+          <div class="text-brand-green text-[11px] font-semibold mt-0.5">Moniteur Principal</div>
+        </div>
+
+        <!-- Membre 3 -->
+        <div class="text-center group" data-reveal data-delay="3">
+          <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-100 to-indigo-200
+                      border-2 border-indigo-200 group-hover:border-indigo-500
+                      flex items-center justify-center mx-auto mb-3
+                      transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg">
+            <span class="text-indigo-600 font-display font-bold text-xl">HS</span>
+          </div>
+          <div class="font-bold text-slate-900 text-sm">Hadiza S.</div>
+          <div class="text-indigo-600 text-[11px] font-semibold mt-0.5">Agent Immobilier</div>
+        </div>
+
+        <!-- Membre 4 -->
+        <div class="text-center group" data-reveal data-delay="4">
+          <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200
+                      border-2 border-orange-200 group-hover:border-brand-orange
+                      flex items-center justify-center mx-auto mb-3
+                      transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg">
+            <span class="text-brand-orange font-display font-bold text-xl">IS</span>
+          </div>
+          <div class="font-bold text-slate-900 text-sm">Ibrahim S.</div>
+          <div class="text-brand-orange text-[11px] font-semibold mt-0.5">Moniteur Conduite</div>
+        </div>
+
+        <!-- Membre 5 -->
+        <div class="text-center group" data-reveal data-delay="1">
+          <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200
+                      border-2 border-slate-200 group-hover:border-slate-500
+                      flex items-center justify-center mx-auto mb-3
+                      transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg">
+            <span class="text-slate-600 font-display font-bold text-xl">FK</span>
+          </div>
+          <div class="font-bold text-slate-900 text-sm">Fatima K.</div>
+          <div class="text-slate-600 text-[11px] font-semibold mt-0.5">Accueil & Admin.</div>
+        </div>
+
+      </div>
+
+      <p class="text-center text-slate-400 text-xs mt-8">
+        <i class="fa-solid fa-circle-info mr-1"></i>
+        Rejoignez notre équipe — contactez-nous sur WhatsApp pour les opportunités de collaboration.
+      </p>
+    </div>
+  </section>
+  <!-- /ÉQUIPE -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 7 — CTA FINAL À PROPOS
+  ══════════════════════════════════════════════════════════ -->
+  <section class="cta-about py-16" aria-label="Prise de contact depuis la page À Propos">
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
+        Vous Partagez Nos Valeurs ?<br/>
+        <span class="text-transparent bg-clip-text"
+              style="background-image: linear-gradient(90deg, #FCD34D, #FB923C);">
+          Travaillons Ensemble.
+        </span>
+      </h2>
+      <p class="text-white/70 leading-relaxed mb-8 max-w-lg mx-auto">
+        Que vous cherchiez un bien immobilier, le permis de conduire,
+        ou simplement à en savoir plus sur notre agence, notre équipe
+        vous accueille <strong class="text-white">tous les jours à Niamey</strong>.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="contact.html" class="btn-primary">
+          <i class="fa-solid fa-location-dot"></i>
+          Venir nous voir
+        </a>
+        <a href="https://wa.me/22798127235?text=Bonjour%20A.M.I%20Niger%2C%20j'ai%20lu%20votre%20page%20À%20Propos%20et%20souhaite%20en%20savoir%20plus%20sur%20vos%20services."
+           target="_blank" rel="noopener noreferrer"
+           class="btn-outline-white">
+          <i class="fa-brands fa-whatsapp"></i>
+          Écrire sur WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- /CTA FINAL -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER — IDENTIQUE AUX AUTRES PAGES
+  ══════════════════════════════════════════════════════════ -->
+  <footer class="footer-main" role="contentinfo" aria-label="Pied de page">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Colonne 1 — Identité -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center border border-white/20">
+              <span class="text-white font-display font-bold text-base">AMI</span>
+            </div>
+            <div>
+              <div class="text-white font-display font-bold text-sm">U.M.A Niger</div>
+              <div class="text-brand-green text-[10px] font-bold tracking-wider uppercase">Immo · Auto-École</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-xs leading-relaxed mb-5">
+            Votre agence de proximité à Niamey, alliant expertise immobilière et formation à la conduite depuis plus de 10 ans.
+          </p>
+          <div class="flex items-center gap-2">
+            <a href="https://wa.me/22788490399" target="_blank" rel="noopener noreferrer"
+               class="w-9 h-9 flex items-center justify-center bg-white/10 hover:bg-green-500 border border-white/15 rounded-lg transition-all duration-200"
+               aria-label="WhatsApp">
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </a>
+            <a href="mailto:agencemaitoimmobiliere@gmail.com"
+               class="w-9 h-9 flex items-center justify-center bg-white/10 hover:bg-blue-mid border border-white/15 rounded-lg transition-all duration-200"
+               aria-label="Email">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Colonne 2 — Navigation -->
+        <div>
+          <h3 class="text-white font-bold text-sm uppercase tracking-wider mb-5">Navigation</h3>
+          <nav aria-label="Liens du footer">
+            <ul class="space-y-0.5">
+              <li><a href="index.html"      class="footer-link">→ Accueil</a></li>
+              <li><a href="immobilier.html" class="footer-link">→ Immobilier</a></li>
+              <li><a href="auto-ecole.html" class="footer-link">→ Auto-École La Sagesse</a></li>
+              <li><a href="a-propos.html"   class="footer-link">→ À Propos</a></li>
+              <li><a href="contact.html"    class="footer-link">→ Contact & Localisation</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Colonne 3 — Coordonnées -->
+        <div>
+          <h3 class="text-white font-bold text-sm uppercase tracking-wider mb-5">Nous Contacter</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-4 h-4 text-brand-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/>
+              </svg>
+              <div>
+                <a href="tel:+22798127235" class="footer-link block">+227 98 12 72 35</a>
+                <a href="tel:+22793340434" class="footer-link block">+227 93 34 04 34</a>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-4 h-4 text-brand-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <a href="mailto:agencemaitoimmobiliere@gmail.com" class="footer-link text-[11px] break-all">
+                agencemaitoimmobiliere@gmail.com
+              </a>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-4 h-4 text-brand-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <span class="text-white/55 text-xs leading-relaxed">
+                Quartier koubia,<br/>
+                en face du Boxing Club,<br/>
+                Niamey — Niger
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Colonne 4 — Horaires -->
+        <div>
+          <h3 class="text-white font-bold text-sm uppercase tracking-wider mb-5">Horaires</h3>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2 h-2 bg-brand-green rounded-full animate-pulse"></span>
+            <span class="text-brand-green text-xs font-bold">Ouvert aujourd'hui</span>
+          </div>
+          <div class="bg-white/05 border border-white/10 rounded-xl p-4 space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="text-white/50 text-xs">Lundi – Vendredi</span>
+              <span class="text-white text-xs font-semibold">8h00 – 18h00</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-white/50 text-xs">Samedi</span>
+              <span class="text-white text-xs font-semibold">8h00 – 17h00</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-white/50 text-xs">Dimanche</span>
+              <span class="text-white text-xs font-semibold">Sur rendez-vous</span>
+            </div>
+            <hr class="border-white/10 my-2"/>
+            <p class="text-white/40 text-[11px] italic">* Urgences disponibles sur WhatsApp.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t footer-divider">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row
+                  items-center justify-between gap-3">
+        <p class="text-white/35 text-xs text-center sm:text-left">
+          © <span id="footer-year"></span> Agence Usman Immobilière (U.M.A Niger) & Auto-École La Sagesse.
+          Tous droits réservés.
+        </p>
+        <p class="text-white/25 text-xs">Niamey, République du Niger</p>
+      </div>
+    </div>
+      <div class="footer-credit" style="text-align:center; padding:14px 10px; border-top:1px solid rgba(255,255,255,0.08);">
+      <a href="mailto:umptvgh@gmail.com" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:rgba(255,255,255,0.45);font-size:12px;flex-wrap:wrap;justify-content:center;">
+        <img src="assets/usman-media-logo.png" alt="Usman Media Production" style="height:28px;width:auto;border-radius:4px;">
+       <span>Site conçu par <strong style="color:#fff;">Usman Media Production</strong></span>
+    <span>—</span>
+    <span>P.O. Box DS D282, Dansoman, Ghana</span>
+    <span>—</span>
+    <span>+233 24 334 85 32</span>
+    <span>—</span>
+    <span>+233 26 234 85 32</span>
+    <span>—</span>
+    <span>umptvgh@gmail.com</span>
+      </a>
+    </div>
+
+</footer>
+  <!-- /FOOTER -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       BOUTON FLOTTANT WHATSAPP
+  ══════════════════════════════════════════════════════════ -->
+  <a href="https://wa.me/22788490399?text=Bonjour%20U.M.A%20Niger%2C%20je%20viens%20de%20lire%20votre%20page%20%C3%80%20Propos%20et%20souhaite%20vous%20contacter."
+     target="_blank" rel="noopener noreferrer"
+     class="whatsapp-float"
+     aria-label="Nous contacter sur WhatsApp">
+    <span class="wa-tooltip">Écrire sur WhatsApp</span>
+    <svg class="relative z-10 w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════════════════ -->
+  <script src="js/main.js"></script>
+  <script>
+    /* ── Année footer ── */
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,385 @@
+/*
+ * ============================================================
+ * style.css — Agence Maïto Immobilière (A.M.I - NIGER)
+ * Styles personnalisés complémentaires à Tailwind CSS
+ * ============================================================
+ */
+
+/* ── IMPORT TYPOGRAPHIE ─────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* ── VARIABLES CSS (Design Tokens) ─────────────────────────── */
+:root {
+  --blue-royal:   #1E3A8A;
+  --blue-mid:     #2D52C4;
+  --blue-light:   #EFF4FF;
+  --green:        #16A34A;
+  --green-light:  #F0FDF4;
+  --orange:       #EA580C;
+  --orange-light: #FFF7ED;
+  --gray-bg:      #F8FAFC;
+  --gray-border:  #E2E8F0;
+  --text-dark:    #0F172A;
+  --text-mid:     #334155;
+  --text-soft:    #64748B;
+  --shadow-sm:    0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
+  --shadow-md:    0 4px 16px rgba(0,0,0,.10), 0 2px 6px rgba(0,0,0,.06);
+  --shadow-lg:    0 12px 40px rgba(0,0,0,.14), 0 4px 12px rgba(0,0,0,.08);
+  --radius:       14px;
+  --transition:   all 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── RESET & BASE ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-dark);
+  background: #fff;
+  overflow-x: hidden;
+}
+
+/* ── TYPOGRAPHIE ────────────────────────────────────────────── */
+.font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+/* ── HEADER & NAVIGATION ────────────────────────────────────── */
+#main-header {
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#main-header.header-scrolled {
+  box-shadow: 0 2px 24px rgba(30,58,138,.12);
+  background-color: rgba(255,255,255,0.98) !important;
+  backdrop-filter: blur(12px);
+}
+
+/* Lien actif dans la nav */
+.nav-active {
+  color: var(--blue-royal) !important;
+  font-weight: 700;
+  position: relative;
+}
+
+.nav-active::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--blue-royal);
+  border-radius: 2px;
+}
+
+/* ── HERO SECTION ───────────────────────────────────────────── */
+.hero-section {
+  background:
+    linear-gradient(135deg,
+      rgba(30,58,138,0.88) 0%,
+      rgba(30,58,138,0.72) 40%,
+      rgba(22,163,74,0.60) 100%),
+    url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80') center/cover no-repeat;
+  min-height: 92vh;
+  position: relative;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(22,163,74,0.18) 0%, transparent 65%);
+}
+
+/* Badge animé */
+@keyframes pulse-badge {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(234,88,12,0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(234,88,12,0); }
+}
+.badge-pulse { animation: pulse-badge 2.4s ease-in-out infinite; }
+
+/* Stat cards dans le hero */
+.hero-stat-card {
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  transition: var(--transition);
+}
+.hero-stat-card:hover {
+  background: rgba(255,255,255,0.20);
+  transform: translateY(-2px);
+}
+
+/* ── BOUTONS ────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--orange);
+  color: #fff;
+  padding: .75rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: .95rem;
+  letter-spacing: .02em;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  box-shadow: 0 4px 14px rgba(234,88,12,.35);
+}
+.btn-primary:hover {
+  background: #c2470a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(234,88,12,.45);
+}
+
+.btn-outline-white {
+  border: 2px solid rgba(255,255,255,0.7);
+  color: #fff;
+  padding: .72rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: .95rem;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+.btn-outline-white:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ── CARTES ACTIVITÉS ───────────────────────────────────────── */
+.activity-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  position: relative;
+}
+
+.activity-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.activity-card .card-overlay {
+  position: absolute;
+  inset: 0;
+  transition: var(--transition);
+}
+
+.activity-card:hover .card-overlay {
+  opacity: 0.85;
+}
+
+.activity-card-immo {
+  background:
+    linear-gradient(160deg, rgba(30,58,138,0.82) 0%, rgba(30,58,138,0.65) 100%),
+    url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=75') center/cover no-repeat;
+  min-height: 440px;
+}
+
+.activity-card-auto {
+  background:
+    linear-gradient(160deg, rgba(22,163,74,0.82) 0%, rgba(22,163,74,0.65) 100%),
+    url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=75') center/cover no-repeat;
+  min-height: 440px;
+}
+
+.card-arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: .95rem;
+  border: 2px solid rgba(255,255,255,0.6);
+  padding: .65rem 1.5rem;
+  border-radius: 50px;
+  transition: var(--transition);
+}
+.card-arrow-btn:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: #fff;
+  gap: .85rem;
+}
+
+/* ── SECTION POURQUOI NOUS ─────────────────────────────────── */
+.feature-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid var(--gray-border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.feature-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+  transform: translateY(-4px);
+}
+.feature-card:hover .feature-icon-wrap { transform: scale(1.1) rotate(-4deg); }
+
+/* ── SECTION STATS ──────────────────────────────────────────── */
+.stats-section {
+  background: linear-gradient(135deg, var(--blue-royal) 0%, #162d6e 100%);
+  position: relative;
+  overflow: hidden;
+}
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.stats-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  background: rgba(22,163,74,0.10);
+}
+
+/* ── FOOTER ─────────────────────────────────────────────────── */
+.footer-main {
+  background: #0B1A3E;
+  color: rgba(255,255,255,0.8);
+}
+
+.footer-link {
+  color: rgba(255,255,255,0.65);
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .9rem;
+  line-height: 1.9;
+}
+.footer-link:hover { color: #fff; }
+
+.footer-divider { border-color: rgba(255,255,255,0.10); }
+
+/* ── BOUTON FLOTTANT WHATSAPP ───────────────────────────────── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 999;
+  background: #25D366;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,.50);
+  transition: var(--transition);
+  text-decoration: none;
+}
+.whatsapp-float:hover {
+  background: #20c15e;
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37,211,102,.60);
+}
+
+@keyframes wa-ripple {
+  0%   { transform: scale(1); opacity: .6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.whatsapp-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25D366;
+  animation: wa-ripple 2s ease-out infinite;
+}
+
+/* Tooltip WhatsApp */
+.wa-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  background: #0F172A;
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: .4rem .85rem;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: var(--transition);
+}
+.wa-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -5px; top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-right: none;
+  border-left-color: #0F172A;
+}
+.whatsapp-float:hover .wa-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── ANIMATIONS REVEAL ──────────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+[data-reveal].revealed {
+  opacity: 1;
+  transform: none;
+}
+[data-reveal][data-delay="1"] { transition-delay: .10s; }
+[data-reveal][data-delay="2"] { transition-delay: .22s; }
+[data-reveal][data-delay="3"] { transition-delay: .34s; }
+[data-reveal][data-delay="4"] { transition-delay: .46s; }
+
+/* ── BADGE SECTION ──────────────────────────────────────────── */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  background: var(--blue-light);
+  color: var(--blue-royal);
+  font-weight: 700;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .35rem .9rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+/* ── SÉPARATEUR DÉCORATIF ───────────────────────────────────── */
+.section-divider {
+  width: 48px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue-royal), var(--green));
+  border-radius: 2px;
+  margin: 1rem 0 1.5rem;
+}

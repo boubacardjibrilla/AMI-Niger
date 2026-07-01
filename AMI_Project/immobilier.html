@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <!-- ═══════════════════════════════════════════════════════
+       META & SEO — PAGE IMMOBILIER
+  ══════════════════════════════════════════════════════════ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Agence Usman Immobilière (U.M.A Niger) — Vente de parcelles, îlots, hectares, location de maisons et business d'appartements à Niamey, Niger. Découvrez nos biens disponibles dès aujourd'hui." />
+  <meta name="keywords" content="immobilier Niamey, vente parcelle Niger, location maison Niamey, terrain à vendre Niger, appartement Niamey, hectare Niger, agence immobilière" />
+  <meta name="author" content="Agence Usman Immobilière" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Immobilier — U.M.A Niger | Vente & Location à Niamey" />
+  <meta property="og:description" content="Parcelles, îlots, hectares, maisons et appartements à Niamey. Votre partenaire immobilier de confiance au Niger." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_NE" />
+     <link rel="icon" type="image/png" href="assets/logo.png" />
+  <title>Immobilier — U.M.A Niger | Parcelles, Villas & Location à Niamey</title>
+
+  <!-- ═══════════════════════════════════════════════════════
+       STYLES
+  ══════════════════════════════════════════════════════ -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'blue-royal':    '#1E3A8A',
+            'blue-mid':      '#2D52C4',
+            'brand-green':   '#16A34A',
+            'brand-orange':  '#EA580C',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans:    ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- FontAwesome 6 (CDN) pour les icônes des piliers -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Styles partagés du projet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <style>
+    /* ── STYLES SPÉCIFIQUES À LA PAGE IMMOBILIER ────────── */
+
+    /* ── Bannière hero immobilier ── */
+    .hero-immo {
+      background:
+        linear-gradient(135deg,
+          rgba(30,58,138,0.92) 0%,
+          rgba(30,58,138,0.78) 45%,
+          rgba(15,30,80,0.88) 100%),
+        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80') center/cover no-repeat;
+      min-height: 68vh;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Motif géométrique décoratif en surimpression */
+    .hero-immo::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 80px;
+      background: white;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb-link {
+      color: rgba(255,255,255,0.6);
+      font-size: .8rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .breadcrumb-link:hover { color: #fff; }
+    .breadcrumb-sep { color: rgba(255,255,255,0.35); font-size:.8rem; }
+
+    /* ── Piliers / Services ── */
+    .pilier-card {
+      background: #fff;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 18px;
+      padding: 2rem 1.75rem;
+      transition: all .35s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .pilier-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--accent, #1E3A8A);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .pilier-card:hover::before { transform: scaleX(1); }
+    .pilier-card:hover {
+      border-color: transparent;
+      box-shadow: 0 16px 48px rgba(30,58,138,.13), 0 4px 12px rgba(30,58,138,.07);
+      transform: translateY(-6px);
+    }
+    .pilier-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.25rem;
+      transition: transform .3s ease;
+    }
+    .pilier-card:hover .pilier-icon { transform: scale(1.12) rotate(-5deg); }
+
+    /* ── Filtre annonces ── */
+    .filter-btn {
+      padding: .5rem 1.25rem;
+      border-radius: 50px;
+      font-size: .82rem;
+      font-weight: 700;
+      border: 1.5px solid #CBD5E1;
+      color: #475569;
+      background: #fff;
+      cursor: pointer;
+      transition: all .22s ease;
+      white-space: nowrap;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #1E3A8A;
+      border-color: #1E3A8A;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(30,58,138,.28);
+    }
+
+    /* ── Cartes de biens ── */
+    .bien-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      border: 1px solid #F1F5F9;
+      transition: all .35s cubic-bezier(.4,0,.2,1);
+      display: flex;
+      flex-direction: column;
+    }
+    .bien-card:hover {
+      box-shadow: 0 20px 52px rgba(0,0,0,.13);
+      transform: translateY(-8px);
+    }
+    .bien-card-img {
+      position: relative;
+      overflow: hidden;
+      height: 220px;
+    }
+    .bien-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .bien-card:hover .bien-card-img img { transform: scale(1.06); }
+
+    /* Badge de statut sur image */
+    .bien-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .3rem .75rem;
+      border-radius: 50px;
+    }
+    .bien-badge-dispo  { background: #16A34A; color: #fff; }
+    .bien-badge-exclu  { background: #1E3A8A; color: #fff; }
+    .bien-badge-neuf   { background: #EA580C; color: #fff; }
+
+    /* Prix sur l'image */
+    .bien-price-tag {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(15,23,42,.82);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-weight: 800;
+      font-size: .95rem;
+      padding: .4rem .9rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+
+    /* Favori (décoratif) */
+    .btn-fav {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,.92);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #CBD5E1;
+      font-size: .95rem;
+      transition: all .2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-fav:hover { color: #EF4444; transform: scale(1.15); }
+
+    /* Corps de la carte bien */
+    .bien-card-body {
+      padding: 1.4rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: .85rem;
+    }
+
+    /* Méta-infos (surface, localisation…) */
+    .bien-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .bien-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .78rem;
+      font-weight: 600;
+      color: #475569;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: .28rem .7rem;
+      border-radius: 8px;
+    }
+    .bien-meta-item i { color: #1E3A8A; font-size: .72rem; }
+
+    /* Bouton WhatsApp de la carte */
+    .btn-wa-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      background: #25D366;
+      color: #fff;
+      font-weight: 700;
+      font-size: .85rem;
+      padding: .7rem 1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all .25s ease;
+      margin-top: auto;
+    }
+    .btn-wa-card:hover {
+      background: #1db954;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37,211,102,.40);
+    }
+
+    /* ── Section CTA bas de page immobilier ── */
+    .cta-immo {
+      background: linear-gradient(135deg, #1E3A8A 0%, #162d6e 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-immo::before {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      background: rgba(255,255,255,.04);
+      border-radius: 50%;
+      top: -150px; right: -100px;
+    }
+    .cta-immo::after {
+      content: '';
+      position: absolute;
+      width: 280px; height: 280px;
+      background: rgba(22,163,74,.10);
+      border-radius: 50%;
+      bottom: -100px; left: -60px;
+    }
+
+    /* ── Compteur Annonces ── */
+    .annonce-count-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: #EFF4FF;
+      color: #1E3A8A;
+      font-weight: 700;
+      font-size: .8rem;
+      padding: .4rem 1rem;
+      border-radius: 50px;
+      border: 1px solid #C7D7FD;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-slate-800 bg-white">
+
+  <!-- ═══════════════════════════════════════════════════════
+       HEADER — IDENTIQUE À index.html
+       (la classe "nav-active" sera posée sur "Immobilier"
+        automatiquement par js/main.js via data-nav-link)
+  ══════════════════════════════════════════════════════════ -->
+  <header id="main-header"
+          class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100"
+          role="banner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-18 py-3">
+
+        <!-- LOGO -->
+        <a href="index.html" class="flex items-center gap-3 group" aria-label="Accueil — U.M.A Niger">
+          <div class="relative">
+            <div class="w-11 h-11 bg-blue-royal rounded-xl flex items-center justify-center shadow-md
+                        group-hover:shadow-lg transition-all duration-300 group-hover:-rotate-3">
+              <span class="text-white font-display font-bold text-lg leading-none">UMA</span>
+            </div>
+            <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-brand-green rounded-full border-2 border-white"></div>
+          </div>
+          <div class="leading-tight">
+            <div class="font-display font-bold text-blue-royal text-base leading-none">
+              U.M.A <span class="text-slate-400 font-sans font-normal text-xs">Niger</span>
+            </div>
+            <div class="text-[10px] font-semibold text-brand-green tracking-wide uppercase leading-none mt-0.5">
+              Immobilier · Auto-École
+            </div>
+          </div>
+        </a>
+
+        <!-- NAVIGATION DESKTOP -->
+        <nav class="hidden lg:flex items-center gap-1" aria-label="Navigation principale">
+          <a href="index.html" data-nav-link
+             class="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-blue-royal rounded-lg hover:bg-blue-50 transition-all duration-200">
+            Accueil
+          </a>
+          <a href="immobilier.html" data-nav-link
+             class="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-blue-royal rounded-lg hover:bg-blue-50 transition-all duration-200">
+            Immobilier
+          </a>
+          <a href="auto-ecole.html" data-nav-link
+             class="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-brand-green rounded-lg hover:bg-green-50 transition-all duration-200">
+            Auto-École
+          </a>
+          <a href="a-propos.html" data-nav-link
+             class="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-blue-royal rounded-lg hover:bg-blue-50 transition-all duration-200">
+            À Propos
+          </a>
+          <a href="contact.html" data-nav-link
+             class="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-blue-royal rounded-lg hover:bg-blue-50 transition-all duration-200">
+            Contact
+          </a>
+        </nav>
+
+        <!-- CTA DESKTOP + BURGER -->
+        <div class="flex items-center gap-3">
+          <a href="tel:+22798127235"
+             class="hidden lg:inline-flex items-center gap-2 bg-blue-royal text-white px-4 py-2.5 rounded-xl
+                    font-semibold text-sm hover:bg-blue-mid transition-all duration-200 shadow-sm hover:shadow-md">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13
+                   a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19
+                   a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/>
+            </svg>
+            Nous appeler
+          </a>
+          <button id="burger-btn"
+                  class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-slate-600
+                         hover:bg-slate-100 transition-colors"
+                  aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg id="burger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENU MOBILE -->
+    <div id="mobile-menu"
+         class="hidden opacity-0 -translate-y-4 lg:hidden bg-white border-t border-slate-100 shadow-xl transition-all duration-300"
+         role="navigation" aria-label="Menu mobile">
+      <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
+        <a href="index.html" data-nav-link
+           class="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-slate-700 rounded-xl hover:bg-blue-50 hover:text-blue-royal transition-colors">
+          <svg class="w-5 h-5 text-blue-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          Accueil
+        </a>
+        <a href="immobilier.html" data-nav-link
+           class="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-slate-700 rounded-xl hover:bg-blue-50 hover:text-blue-royal transition-colors">
+          <svg class="w-5 h-5 text-blue-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+          Immobilier
+        </a>
+        <a href="auto-ecole.html" data-nav-link
+           class="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-slate-700 rounded-xl hover:bg-green-50 hover:text-brand-green transition-colors">
+          <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zm10 0a2 2 0 11-4 0 2 2 0 014 0zM3 11l1.5-4.5A2 2 0 016.4 5h11.2a2 2 0 011.9 1.5L21 11M3 11h18M3 11v4a1 1 0 001 1h1m14-5v5a1 1 0 01-1 1h-1"/>
+          </svg>
+          Auto-École "La Sagesse"
+        </a>
+        <a href="a-propos.html" data-nav-link
+           class="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-slate-700 rounded-xl hover:bg-blue-50 hover:text-blue-royal transition-colors">
+          <svg class="w-5 h-5 text-blue-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          À Propos
+        </a>
+        <a href="contact.html" data-nav-link
+           class="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-slate-700 rounded-xl hover:bg-blue-50 hover:text-blue-royal transition-colors">
+          <svg class="w-5 h-5 text-blue-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          Contact & Localisation
+        </a>
+        <div class="pt-3 border-t border-slate-100 mt-2 flex flex-col gap-2">
+          <a href="tel:+22798127235"
+             class="flex items-center justify-center gap-2 bg-blue-royal text-white px-4 py-3 rounded-xl font-bold text-sm hover:bg-blue-mid transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/>
+            </svg>
+            +227 98 12 72 35
+          </a>
+          <a href="tel:+22793340434"
+             class="flex items-center justify-center gap-2 border border-slate-200 text-slate-700 px-4 py-3 rounded-xl font-semibold text-sm hover:bg-slate-50 transition-colors">
+            +227 93 34 04 34
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- /HEADER -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 1 — BANNIÈRE HERO IMMOBILIER
+  ══════════════════════════════════════════════════════════ -->
+  <section class="hero-immo flex items-center" aria-label="Bannière immobilier">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-24 w-full">
+
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 mb-6" aria-label="Fil d'ariane">
+        <a href="index.html" class="breadcrumb-link">Accueil</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="text-white/90 text-sm font-semibold">Immobilier</span>
+      </nav>
+
+      <div class="max-w-2xl">
+        <!-- Pastille -->
+        <div class="inline-flex items-center gap-2 bg-white/12 border border-white/22
+                    backdrop-blur-sm text-white text-xs font-bold tracking-widest uppercase
+                    px-4 py-2 rounded-full mb-6">
+          <i class="fa-solid fa-building-columns text-brand-orange"></i>
+          Espace Immobilier — A.M.I Niger
+        </div>
+
+        <!-- Titre -->
+        <h1 class="font-display text-white text-4xl sm:text-5xl lg:text-[3.5rem] font-bold leading-tight mb-5">
+          Nos Solutions
+          <span class="block">
+            <span class="text-transparent bg-clip-text"
+                  style="background-image: linear-gradient(90deg,#FCD34D,#F97316);">
+              Immobilières
+            </span>
+          </span>
+          à Niamey
+        </h1>
+
+        <!-- Sous-titre -->
+        <p class="text-white/78 text-lg leading-relaxed mb-8 max-w-xl">
+          De la parcelle nue au complexe résidentiel, l'Agence Maïto Immobilière
+          vous accompagne à chaque étape de votre projet foncier et locatif
+          avec <strong class="text-white">rigueur</strong> et <strong class="text-white">transparence</strong>.
+        </p>
+
+        <!-- CTA hero -->
+        <div class="flex flex-wrap gap-4">
+          <a href="#biens" class="btn-primary">
+            <i class="fa-solid fa-magnifying-glass-location"></i>
+            Voir les annonces
+          </a>
+          <a href="#piliers"
+             class="btn-outline-white">
+            <i class="fa-solid fa-layer-group"></i>
+            Nos services
+          </a>
+        </div>
+      </div>
+
+      <!-- Indicateurs rapides en bas du hero -->
+      <div class="flex flex-wrap gap-4 mt-12">
+        <div class="hero-stat-card rounded-2xl px-5 py-3 flex items-center gap-3">
+          <i class="fa-solid fa-map-pin text-brand-orange text-xl"></i>
+          <div>
+            <div class="font-bold text-white text-lg leading-none">150+</div>
+            <div class="text-white/65 text-xs mt-0.5">Biens gérés</div>
+          </div>
+        </div>
+        <div class="hero-stat-card rounded-2xl px-5 py-3 flex items-center gap-3">
+          <i class="fa-solid fa-handshake text-brand-orange text-xl"></i>
+          <div>
+            <div class="font-bold text-white text-lg leading-none">300+</div>
+            <div class="text-white/65 text-xs mt-0.5">Transactions réalisées</div>
+          </div>
+        </div>
+        <div class="hero-stat-card rounded-2xl px-5 py-3 flex items-center gap-3">
+          <i class="fa-solid fa-star text-brand-orange text-xl"></i>
+          <div>
+            <div class="font-bold text-white text-lg leading-none">10 ans</div>
+            <div class="text-white/65 text-xs mt-0.5">Sur le marché nigérien</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /HERO IMMOBILIER -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 2 — LES 5 PILIERS DE L'ACTIVITÉ IMMOBILIÈRE
+  ══════════════════════════════════════════════════════════ -->
+  <section id="piliers" class="py-20 bg-white" aria-labelledby="piliers-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- En-tête -->
+      <div class="text-center mb-14" data-reveal>
+        <div class="section-badge mx-auto w-fit">
+          <i class="fa-solid fa-circle-dot text-[10px]"></i>
+          Nos Domaines d'Expertise
+        </div>
+        <h2 id="piliers-title"
+            class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mt-3 mb-4">
+          Les 5 Piliers de<br/>
+          <span class="text-blue-royal">Notre Activité</span>
+        </h2>
+        <div class="section-divider mx-auto"></div>
+        <p class="text-slate-500 max-w-lg mx-auto text-base leading-relaxed">
+          De la transaction foncière à la gestion locative résidentielle,
+          chaque service est pensé pour répondre aux réalités du marché de Niamey.
+        </p>
+      </div>
+
+      <!-- Grille des 5 piliers -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- ── Pilier 1 : Vente de Parcelles ── -->
+        <div class="pilier-card" style="--accent:#1E3A8A" data-reveal data-delay="1">
+          <div class="pilier-icon bg-blue-50 text-blue-royal">
+            <i class="fa-solid fa-border-all"></i>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-xl mb-2">
+            Vente de Parcelles
+          </h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-4">
+            Acquisition de <strong class="text-slate-700">terrains titrés ou en cours de régularisation</strong>
+            dans les quartiers résidentiels et périphériques de Niamey.
+            Nous vérifions scrupuleusement les documents fonciers pour votre sécurité juridique.
+          </p>
+          <!-- Points clés -->
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-xs text-slate-600">
+              <i class="fa-solid fa-check text-blue-royal text-[10px]"></i>
+              Vérification du titre foncier incluse
+            </li>
+            <li class="flex items-center gap-2 text-xs text-slate-600">
+              <i class="fa-solid fa-check text-blue-royal text-[10px]"></i>
+              Accompagnement jusqu'à la mutation
+            </li>
+            <li class="flex items-center gap-2 text-xs text-slate-600">
+              <i class="fa-solid fa-check text-blue-royal text-[10px]"></i>
+              Quartiers : Niamey 1 à 8 et périphérie
+            </li>
+          </ul>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">À partir de</span>
+            <span class="text-blue-royal font-display font-bold text-lg">1 500 000 FCFA</span>
+          </div>
+        </div>
+
+        <!-- ── Pilier 2 : Vente d'Îlots ── -->
+        <div class="pilier-card" style="--accent:#2D52C4" data-reveal data-delay="2">
+          <div class="pilier-icon bg-indigo-50 text-indigo-600">
+            <i class="fa-solid fa-draw-polygon"></i>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-xl mb-2">
+            Vente d'Îlots
+          </h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-4">
+            Un <strong class="text-slate-700">îlot</strong> regroupe plusieurs parcelles contiguës,
+            idéal pour les promoteurs, coopératives d'habitat ou projets de lotissement.
+            Nous identifions les disponibilités et facilitons les démarches administratives.
+          </p>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-xs text-slate-600">
+              <i class="fa-solid fa-check text-indigo-500 text-[10px]"></i>
+              Idéal pour lotissements et coopératives
+            </li>
+            <li class="flex items-center gap-2 text-xs text-slate-600">
+              <i class="fa-solid fa-check text-indigo-500 text-[10px]"></i>
+              Superficies de 800 m² à 5 000 m²
+            </li>
+            <li class="flex items-center gap-2 text-xs text-slate-600">
+              <i class="fa-solid fa-check text-indigo-500 text-[10px]"></i>
+              Gestion des démarches cadastrales
+            </li>
+          </ul>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">À partir de</span>
+            <span class="text-indigo-600 font-display font-bold text-lg">8 000 000 FCFA</span>
+          </div>
+        </div>
+
+        <!-- ── Pilier 3 : Vente d'Hectares ── -->
+        <div class="pilier-card" style="--accent:#EA580C" data-reveal data-delay="3">
+          <div class="pilier-icon bg-orange-50 text-brand-orange">
+            <i class="fa-solid fa-mountain-sun"></i>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-xl mb-2">
+            Vente d'Hectares
+          </h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-4">
+            Pour les <strong class="text-slate-700">grands investisseurs</strong>, promoteurs immobiliers
+            et projets agro-industriels : cession de grandes étendues foncières
+            en périphérie de Niamey et dans les régions voisines.
+          </p>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-xs text-slate-600">
+              <i class="fa-solid fa-check text-brand-orange text-[10px]"></i>
+              De 1 à 50+ hectares disponibles
+            </li>
+            <li class="flex items-center gap-2 text-xs text-slate-600">
+              <i class="fa-solid fa-check text-brand-orange text-[10px]"></i>
+              Zones périurbaines et régions
+            </li>
+            <li class="flex items-center gap-2 text-xs text-slate-600">
+              <i class="fa-solid fa-check text-brand-orange text-[10px]"></i>
+              Étude de viabilité offerte
+            </li>
+          </ul>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Négociable</span>
+            <span class="text-brand-orange font-display font-bold text-lg">Sur devis</span>
+          </div>
+        </div>
+
+        <!-- ── Pilier 4 : Location de Maisons ── -->
+        <div class="pilier-card" style="--accent:#16A34A" data-reveal data-delay="1">
+          <div class="pilier-icon bg-green-50 text-brand-green">
+            <i class="fa-solid fa-house-chimney"></i>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-xl mb-2">
+            Location de Maisons
+          </h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-4">
+            Un vaste portefeuille de <strong class="text-slate-700">villas, maisons individuelles et
+            chambres-salons</strong> à louer dans les quartiers prisés de Niamey.
+            Gestion locative complète disponible pour les propriétaires bailleurs.
+          </p>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-xs text-slate-600">
+              <i class="fa-solid fa-check text-brand-green text-[10px]"></i>
+              Logements meublés et non meublés
+            </li>
+            <li class="flex items-center gap-2 text-xs text-slate-600">
+              <i class="fa-solid fa-check text-brand-green text-[10px]"></i>
+              Rédaction de bail sécurisée
+            </li>
+            <li class="flex items-center gap-2 text-xs text-slate-600">
+              <i class="fa-solid fa-check text-brand-green text-[10px]"></i>
+              Suivi et entretien inclus en gestion
+            </li>
+          </ul>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">À partir de</span>
+            <span class="text-brand-green font-display font-bold text-lg">60 000 FCFA/mois</span>
+          </div>
+        </div>
+
+        <!-- ── Pilier 5 : Business des Appartements ── -->
+        <div class="pilier-card sm:col-span-2 lg:col-span-2" style="--accent:#0F172A" data-reveal data-delay="2">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-6">
+            <div class="flex-shrink-0">
+              <div class="pilier-icon bg-slate-900 text-white w-16 h-16 text-2xl">
+                <i class="fa-solid fa-building"></i>
+              </div>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-display font-bold text-slate-900 text-xl mb-2">
+                Business des Appartements
+                <span class="ml-2 inline-block text-[11px] font-bold bg-slate-900 text-white
+                             px-2.5 py-0.5 rounded-full align-middle">Premium</span>
+              </h3>
+              <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                Notre service phare pour les <strong class="text-slate-700">investisseurs et propriétaires</strong>
+                souhaitant rentabiliser leurs biens. Nous prenons en charge la mise en location,
+                la gestion des locataires, l'entretien et la collecte des loyers pour vos appartements,
+                duplex et résidences. Un <strong class="text-slate-700">investissement serein</strong>,
+                de la signature du bail à la quittance mensuelle.
+              </p>
+              <!-- 3 colonnes d'avantages -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="bg-slate-50 rounded-xl p-3 border border-slate-200">
+                  <i class="fa-solid fa-percent text-slate-700 mb-2 text-lg"></i>
+                  <div class="font-bold text-slate-800 text-sm">Rentabilité optimisée</div>
+                  <div class="text-slate-500 text-xs mt-0.5">Taux d'occupation maximisé</div>
+                </div>
+                <div class="bg-slate-50 rounded-xl p-3 border border-slate-200">
+                  <i class="fa-solid fa-file-contract text-slate-700 mb-2 text-lg"></i>
+                  <div class="font-bold text-slate-800 text-sm">Gestion administrative</div>
+                  <div class="text-slate-500 text-xs mt-0.5">Baux, quittances, états des lieux</div>
+                </div>
+                <div class="bg-slate-50 rounded-xl p-3 border border-slate-200">
+                  <i class="fa-solid fa-bell-concierge text-slate-700 mb-2 text-lg"></i>
+                  <div class="font-bold text-slate-800 text-sm">Conciergerie</div>
+                  <div class="text-slate-500 text-xs mt-0.5">Entretien & dépannage rapide</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between flex-wrap gap-3">
+            <span class="text-xs text-slate-500">
+              <i class="fa-solid fa-circle-info text-slate-400 mr-1"></i>
+              Commission de gestion : à négocier selon le bien
+            </span>
+            <a href="https://wa.me/22798127235?text=Bonjour%2C%20je%20souhaite%20confier%20mon%20appartement%20en%20gestion%20à%20A.M.I%20Niger."
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 bg-slate-900 text-white text-xs font-bold
+                      px-4 py-2 rounded-xl hover:bg-slate-700 transition-colors">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              Confier mon bien
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /grille piliers -->
+    </div>
+  </section>
+  <!-- /PILIERS -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 3 — BIENS MIS EN AVANT (Annonces fictives)
+  ══════════════════════════════════════════════════════════ -->
+  <section id="biens" class="py-20 bg-slate-50" aria-labelledby="biens-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- En-tête + filtres -->
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10" data-reveal>
+        <div>
+          <div class="section-badge">
+            <i class="fa-solid fa-circle-dot text-[10px]"></i>
+            Annonces à la Une
+          </div>
+          <h2 id="biens-title"
+              class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mt-3 mb-2">
+            Biens <span class="text-blue-royal">Mis en Avant</span>
+          </h2>
+          <p class="text-slate-500 text-sm">
+            Sélection exclusive de biens disponibles dès maintenant à Niamey.
+          </p>
+        </div>
+
+        <!-- Compteur + filtres -->
+        <div class="flex flex-col items-start lg:items-end gap-3">
+          <div class="annonce-count-badge">
+            <i class="fa-solid fa-layer-group"></i>
+            4 annonces disponibles
+          </div>
+          <!-- Boutons filtres -->
+          <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrer les annonces">
+            <button class="filter-btn active" data-filter="all">Tout voir</button>
+            <button class="filter-btn" data-filter="terrain">Terrains</button>
+            <button class="filter-btn" data-filter="villa">Villas</button>
+            <button class="filter-btn" data-filter="location">Location</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grille des biens (4 cartes) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="biens-grid">
+
+        <!-- ── BIEN 1 : Parcelle Koira Kano ── -->
+        <article class="bien-card" data-type="terrain" data-reveal data-delay="1">
+          <div class="bien-card-img">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=70"
+                 alt="Terrain à vendre — Koira Kano, Niamey"
+                 loading="lazy" />
+            <span class="bien-badge bien-badge-dispo">Disponible</span>
+            <span class="bien-price-tag">4 500 000 FCFA</span>
+            <button class="btn-fav" aria-label="Ajouter aux favoris">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="bien-card-body">
+            <div>
+              <div class="flex items-center gap-1.5 mb-1">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-blue-royal bg-blue-50 px-2 py-0.5 rounded">
+                  Terrain
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-slate-900 text-base leading-snug">
+                Parcelle Résidentielle
+              </h3>
+              <p class="text-slate-500 text-xs mt-0.5 flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-brand-orange"></i>
+                Koira Kano, Niamey — Arrondissement 3
+              </p>
+            </div>
+
+            <div class="bien-meta">
+              <span class="bien-meta-item">
+                <i class="fa-solid fa-ruler-combined"></i>
+                300 m²
+              </span>
+              <span class="bien-meta-item">
+                <i class="fa-solid fa-file-contract"></i>
+                Titre foncier
+              </span>
+              <span class="bien-meta-item">
+                <i class="fa-solid fa-road"></i>
+                Rue bitumée
+              </span>
+            </div>
+
+            <p class="text-slate-500 text-xs leading-relaxed">
+              Parcelle de 300 m² viabilisée, eau et électricité en façade.
+              Idéale pour construction individuelle. Documents en ordre.
+            </p>
+
+            <a href="https://wa.me/22798127235?text=Bonjour%20A.M.I%20Niger%2C%20je%20suis%20intéressé(e)%20par%20la%20parcelle%20de%20Koira%20Kano%20à%204%20500%20000%20FCFA."
+               target="_blank" rel="noopener noreferrer"
+               class="btn-wa-card">
+              <i class="fa-brands fa-whatsapp text-base"></i>
+              Plus d'infos via WhatsApp
+            </a>
+          </div>
+        </article>
+
+        <!-- ── BIEN 2 : Villa Wadata ── -->
+        <article class="bien-card" data-type="villa" data-reveal data-delay="2">
+          <div class="bien-card-img">
+            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=70"
+                 alt="Villa à vendre — Wadata, Niamey"
+                 loading="lazy" />
+            <span class="bien-badge bien-badge-exclu">Exclusivité</span>
+            <span class="bien-price-tag">45 000 000 FCFA</span>
+            <button class="btn-fav" aria-label="Ajouter aux favoris">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="bien-card-body">
+            <div>
+              <div class="flex items-center gap-1.5 mb-1">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
+                  Villa à vendre
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-slate-900 text-base leading-snug">
+                Villa F5 avec Piscine
+              </h3>
+              <p class="text-slate-500 text-xs mt-0.5 flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-brand-orange"></i>
+                Wadata, Niamey — Arrondissement 2
+              </p>
+            </div>
+
+            <div class="bien-meta">
+              <span class="bien-meta-item">
+                <i class="fa-solid fa-expand"></i>
+                650 m²
+              </span>
+              <span class="bien-meta-item">
+                <i class="fa-solid fa-bed"></i>
+                5 chambres
+              </span>
+              <span class="bien-meta-item">
+                <i class="fa-solid fa-water-ladder"></i>
+                Piscine
+              </span>
+            </div>
+
+            <p class="text-slate-500 text-xs leading-relaxed">
+              Somptueuse villa F5 avec jardin aménagé, piscine, 2 salons, cuisine équipée et double garage. Titre foncier.
+            </p>
+
+            <a href="https://wa.me/22798127235?text=Bonjour%20A.M.I%20Niger%2C%20je%20suis%20intéressé(e)%20par%20la%20villa%20F5%20de%20Wadata%20à%2045%20000%20000%20FCFA."
+               target="_blank" rel="noopener noreferrer"
+               class="btn-wa-card">
+              <i class="fa-brands fa-whatsapp text-base"></i>
+              Plus d'infos via WhatsApp
+            </a>
+          </div>
+        </article>
+
+        <!-- ── BIEN 3 : Maison en location Plateau ── -->
+        <article class="bien-card" data-type="location" data-reveal data-delay="3">
+          <div class="bien-card-img">
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=70"
+                 alt="Maison à louer — Plateau, Niamey"
+                 loading="lazy" />
+            <span class="bien-badge bien-badge-dispo">À louer</span>
+            <span class="bien-price-tag">150 000 FCFA/mois</span>
+            <button class="btn-fav" aria-label="Ajouter aux favoris">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="bien-card-body">
+            <div>
+              <div class="flex items-center gap-1.5 mb-1">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-brand-green bg-green-50 px-2 py-0.5 rounded">
+                  Location
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-slate-900 text-base leading-snug">
+                Maison F4 Clim. & Gardien
+              </h3>
+              <p class="text-slate-500 text-xs mt-0.5 flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-brand-orange"></i>
+                Plateau, Niamey — Arrondissement 1
+              </p>
+            </div>
+
+            <div class="bien-meta">
+              <span class="bien-meta-item">
+                <i class="fa-solid fa-expand"></i>
+                280 m²
+              </span>
+              <span class="bien-meta-item">
+                <i class="fa-solid fa-bed"></i>
+                4 chambres
+              </span>
+              <span class="bien-meta-item">
+                <i class="fa-solid fa-snowflake"></i>
+                Climatisée
+              </span>
+            </div>
+
+            <p class="text-slate-500 text-xs leading-relaxed">
+              Maison F4 sécurisée avec gardien, clôture, groupe électrogène et citerne d'eau. Quartier calme et résidentiel.
+            </p>
+
+            <a href="https://wa.me/22798127235?text=Bonjour%20A.M.I%20Niger%2C%20je%20souhaite%20louer%20la%20maison%20F4%20du%20Plateau%20à%20150%20000%20FCFA%2Fmois."
+               target="_blank" rel="noopener noreferrer"
+               class="btn-wa-card">
+              <i class="fa-brands fa-whatsapp text-base"></i>
+              Plus d'infos via WhatsApp
+            </a>
+          </div>
+        </article>
+
+        <!-- ── BIEN 4 : Terrain Saga (grand format) ── -->
+        <article class="bien-card" data-type="terrain" data-reveal data-delay="4">
+          <div class="bien-card-img">
+            <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=70"
+                 alt="Grand terrain à vendre — Saga, Niamey"
+                 loading="lazy" />
+            <span class="bien-badge bien-badge-neuf">Nouveau</span>
+            <span class="bien-price-tag">18 000 000 FCFA</span>
+            <button class="btn-fav" aria-label="Ajouter aux favoris">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="bien-card-body">
+            <div>
+              <div class="flex items-center gap-1.5 mb-1">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-brand-orange bg-orange-50 px-2 py-0.5 rounded">
+                  Grand Terrain
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-slate-900 text-base leading-snug">
+                Îlot de 1 200 m²
+              </h3>
+              <p class="text-slate-500 text-xs mt-0.5 flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-brand-orange"></i>
+                Saga, Niamey — Arrondissement 5
+              </p>
+            </div>
+
+            <div class="bien-meta">
+              <span class="bien-meta-item">
+                <i class="fa-solid fa-ruler-combined"></i>
+                1 200 m²
+              </span>
+              <span class="bien-meta-item">
+                <i class="fa-solid fa-file-contract"></i>
+                Titre en cours
+              </span>
+              <span class="bien-meta-item">
+                <i class="fa-solid fa-angles-up"></i>
+                Constructible
+              </span>
+            </div>
+
+            <p class="text-slate-500 text-xs leading-relaxed">
+              Vaste terrain de 1 200 m² idéal pour promoteur ou projet collectif. Accès route goudronnée, proche de toutes commodités.
+            </p>
+
+            <a href="https://wa.me/22798127235?text=Bonjour%20A.M.I%20Niger%2C%20je%20suis%20intéressé(e)%20par%20l'îlot%20de%201200%20m²%20à%20Saga%20-%20Niamey."
+               target="_blank" rel="noopener noreferrer"
+               class="btn-wa-card">
+              <i class="fa-brands fa-whatsapp text-base"></i>
+              Plus d'infos via WhatsApp
+            </a>
+          </div>
+        </article>
+
+      </div><!-- /biens-grid -->
+
+      <!-- Note de bas de section -->
+      <div class="mt-10 text-center" data-reveal>
+        <p class="text-slate-400 text-sm mb-5">
+          <i class="fa-solid fa-circle-info text-slate-300 mr-1.5"></i>
+          Les prix sont indicatifs et peuvent évoluer. Contactez-nous pour une estimation personnalisée.
+        </p>
+        <a href="https://wa.me/22798127235?text=Bonjour%20A.M.I%20Niger%2C%20je%20cherche%20un%20bien%20immobilier%20et%20souhaite%20voir%20toutes%20vos%20annonces."
+           target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 border-2 border-brand-green text-brand-green
+                  px-6 py-3 rounded-full font-bold text-sm
+                  hover:bg-brand-green hover:text-white transition-all duration-200">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          Demander toutes nos annonces disponibles
+        </a>
+      </div>
+
+    </div>
+  </section>
+  <!-- /BIENS MIS EN AVANT -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 4 — PROCESSUS D'ACCOMPAGNEMENT
+  ══════════════════════════════════════════════════════════ -->
+  <section class="py-20 bg-white" aria-labelledby="process-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-12" data-reveal>
+        <div class="section-badge mx-auto w-fit">
+          <i class="fa-solid fa-circle-dot text-[10px]"></i>
+          Notre Méthode
+        </div>
+        <h2 id="process-title"
+            class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mt-3 mb-4">
+          Comment Ça <span class="text-blue-royal">Fonctionne ?</span>
+        </h2>
+        <div class="section-divider mx-auto"></div>
+        <p class="text-slate-500 max-w-md mx-auto text-sm leading-relaxed">
+          Un processus simple, transparent et sécurisé en 4 étapes.
+        </p>
+      </div>
+
+      <!-- Timeline horizontale -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 relative">
+
+        <!-- Ligne de connexion (desktop uniquement) -->
+        <div class="hidden lg:block absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-blue-royal via-blue-mid to-brand-green z-0"></div>
+
+        <!-- Étape 1 -->
+        <div class="flex flex-col items-center text-center px-4 relative z-10" data-reveal data-delay="1">
+          <div class="w-20 h-20 rounded-2xl bg-blue-royal flex items-center justify-center
+                      text-white text-2xl shadow-lg mb-4 relative">
+            <i class="fa-solid fa-phone-volume"></i>
+            <span class="absolute -top-2 -right-2 w-7 h-7 bg-brand-orange text-white text-xs
+                         font-black rounded-full flex items-center justify-center shadow-md">1</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">Premier Contact</h3>
+          <p class="text-slate-500 text-xs leading-relaxed">
+            Appelez-nous ou écrivez sur WhatsApp. Décrivez votre besoin et votre budget.
+          </p>
+        </div>
+
+        <!-- Étape 2 -->
+        <div class="flex flex-col items-center text-center px-4 relative z-10" data-reveal data-delay="2">
+          <div class="w-20 h-20 rounded-2xl bg-blue-mid flex items-center justify-center
+                      text-white text-2xl shadow-lg mb-4 relative">
+            <i class="fa-solid fa-binoculars"></i>
+            <span class="absolute -top-2 -right-2 w-7 h-7 bg-brand-orange text-white text-xs
+                         font-black rounded-full flex items-center justify-center shadow-md">2</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">Sélection & Visite</h3>
+          <p class="text-slate-500 text-xs leading-relaxed">
+            Nous sélectionnons les biens correspondants et vous programmons des visites.
+          </p>
+        </div>
+
+        <!-- Étape 3 -->
+        <div class="flex flex-col items-center text-center px-4 relative z-10" data-reveal data-delay="3">
+          <div class="w-20 h-20 rounded-2xl bg-brand-green flex items-center justify-center
+                      text-white text-2xl shadow-lg mb-4 relative">
+            <i class="fa-solid fa-file-signature"></i>
+            <span class="absolute -top-2 -right-2 w-7 h-7 bg-brand-orange text-white text-xs
+                         font-black rounded-full flex items-center justify-center shadow-md">3</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">Négociation & Accord</h3>
+          <p class="text-slate-500 text-xs leading-relaxed">
+            Nous négocions pour vous le meilleur prix et rédigeons les actes nécessaires.
+          </p>
+        </div>
+
+        <!-- Étape 4 -->
+        <div class="flex flex-col items-center text-center px-4 relative z-10" data-reveal data-delay="4">
+          <div class="w-20 h-20 rounded-2xl bg-slate-900 flex items-center justify-center
+                      text-white text-2xl shadow-lg mb-4 relative">
+            <i class="fa-solid fa-key"></i>
+            <span class="absolute -top-2 -right-2 w-7 h-7 bg-brand-orange text-white text-xs
+                         font-black rounded-full flex items-center justify-center shadow-md">4</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">Remise des Clés</h3>
+          <p class="text-slate-500 text-xs leading-relaxed">
+            Votre bien est officiellement le vôtre. Nous restons disponibles après la transaction.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- /PROCESSUS -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 5 — CTA FINAL IMMOBILIER
+  ══════════════════════════════════════════════════════════ -->
+  <section class="cta-immo py-16" aria-label="Appel à l'action immobilier">
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
+        Votre Projet Immobilier<br/>
+        <span class="text-transparent bg-clip-text"
+              style="background-image: linear-gradient(90deg, #FCD34D, #FB923C);">
+          Commence Ici
+        </span>
+      </h2>
+      <p class="text-white/70 leading-relaxed mb-8 max-w-lg mx-auto">
+        Que vous cherchiez à acheter, vendre ou louer, notre équipe est à votre disposition
+        <strong class="text-white">7 jours sur 7</strong> à Niamey.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="tel:+22788490399" class="btn-primary">
+          <i class="fa-solid fa-phone"></i>
+          Appeler maintenant
+        </a>
+        <a href="https://wa.me/22788490399?text=Bonjour%20U.M.A%20Niger%2C%20j'ai%20un%20projet%20immobilier%20et%20j'aimerais%20être%20contacté(e)."
+           target="_blank" rel="noopener noreferrer"
+           class="btn-outline-white">
+          <i class="fa-brands fa-whatsapp"></i>
+          Écrire sur WhatsApp
+        </a>
+      </div>
+      <p class="text-white/40 text-xs mt-6">
+        <i class="fa-solid fa-location-dot text-white/30 mr-1"></i>
+        Quartier Maison Économique, en face du Boxing Club — Niamey, Niger
+      </p>
+    </div>
+  </section>
+  <!-- /CTA FINAL -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER — IDENTIQUE À index.html
+  ══════════════════════════════════════════════════════════ -->
+  <footer class="footer-main" role="contentinfo" aria-label="Pied de page">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Colonne 1 — Identité -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center border border-white/20">
+              <span class="text-white font-display font-bold text-base">UMA</span>
+            </div>
+            <div>
+              <div class="text-white font-display font-bold text-sm">U.M.A Niger</div>
+              <div class="text-brand-green text-[10px] font-bold tracking-wider uppercase">Immo · Auto-École</div>
+            </div>
+          </div>
+          <p class="text-white/50 text-xs leading-relaxed mb-5">
+            Votre agence de proximité à Niamey, alliant expertise immobilière et formation à la conduite depuis plus de 10 ans.
+          </p>
+          <div class="flex items-center gap-2">
+            <a href="https://wa.me/22788490399" target="_blank" rel="noopener noreferrer"
+               class="w-9 h-9 flex items-center justify-center bg-white/10 hover:bg-green-500 border border-white/15 rounded-lg transition-all duration-200"
+               aria-label="WhatsApp">
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </a>
+            <a href="mailto:contact@usmanmedia.com"
+               class="w-9 h-9 flex items-center justify-center bg-white/10 hover:bg-blue-mid border border-white/15 rounded-lg transition-all duration-200"
+               aria-label="Email">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Colonne 2 — Navigation -->
+        <div>
+          <h3 class="text-white font-bold text-sm uppercase tracking-wider mb-5">Navigation</h3>
+          <nav aria-label="Liens du footer">
+            <ul class="space-y-0.5">
+              <li><a href="index.html"      class="footer-link">→ Accueil</a></li>
+              <li><a href="immobilier.html" class="footer-link">→ Immobilier</a></li>
+              <li><a href="auto-ecole.html" class="footer-link">→ Auto-École La Sagesse</a></li>
+              <li><a href="a-propos.html"   class="footer-link">→ À Propos</a></li>
+              <li><a href="contact.html"    class="footer-link">→ Contact & Localisation</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Colonne 3 — Coordonnées -->
+        <div>
+          <h3 class="text-white font-bold text-sm uppercase tracking-wider mb-5">Nous Contacter</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-4 h-4 text-brand-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/>
+              </svg>
+              <div>
+                <a href="tel:+22788490399" class="footer-link block">+227 88 49 03 99</a>
+                <a href="tel:+22788490399" class="footer-link block">+227 88 49 03 99</a>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-4 h-4 text-brand-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <a href="mailto:contact@usmanmedia.com" class="footer-link text-[11px] break-all">
+                contact@usmanmedia.com
+              </a>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-4 h-4 text-brand-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <span class="text-white/55 text-xs leading-relaxed">
+                Quartier Koubia,<br/>
+                en face du Boxing Club,<br/>
+                Niamey — Niger
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Colonne 4 — Horaires -->
+        <div>
+          <h3 class="text-white font-bold text-sm uppercase tracking-wider mb-5">Horaires</h3>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2 h-2 bg-brand-green rounded-full animate-pulse"></span>
+            <span class="text-brand-green text-xs font-bold">Ouvert aujourd'hui</span>
+          </div>
+          <div class="bg-white/05 border border-white/10 rounded-xl p-4 space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="text-white/50 text-xs">Lundi – Vendredi</span>
+              <span class="text-white text-xs font-semibold">8h00 – 18h00</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-white/50 text-xs">Samedi</span>
+              <span class="text-white text-xs font-semibold">8h00 – 17h00</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-white/50 text-xs">Dimanche</span>
+              <span class="text-white text-xs font-semibold">Sur rendez-vous</span>
+            </div>
+            <hr class="border-white/10 my-2"/>
+            <p class="text-white/40 text-[11px] italic">
+              * Urgences disponibles sur WhatsApp.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t footer-divider">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row
+                  items-center justify-between gap-3">
+        <p class="text-white/35 text-xs text-center sm:text-left">
+          © <span id="footer-year"></span> Agence Maïto Immobilière (A.M.I Niger) & Auto-École La Sagesse.
+          Tous droits réservés.
+        </p>
+        <p class="text-white/25 text-xs">Niamey, République du Niger</p>
+      </div>
+    </div>
+      <div class="footer-credit" style="text-align:center; padding:14px 10px; border-top:1px solid rgba(255,255,255,0.08);">
+      <a href="mailto:umptvgh@gmail.com" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:rgba(255,255,255,0.45);font-size:12px;flex-wrap:wrap;justify-content:center;">
+        <img src="assets/usman-media-logo.png" alt="Usman Media Production" style="height:28px;width:auto;border-radius:4px;">
+        <span>Site conçu par <strong style="color:#fff;">Usman Media Production</strong></span>
+    <span>—</span>
+    <span>P.O. Box DS D282, Dansoman, Ghana</span>
+    <span>—</span>
+    <span>+233 24 334 85 32</span>
+    <span>—</span>
+    <span>+233 26 234 85 32</span>
+    <span>—</span>
+    <span>umptvgh@gmail.com</span>
+      </a>
+    </div>
+
+</footer>
+  <!-- /FOOTER -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       BOUTON FLOTTANT WHATSAPP
+  ══════════════════════════════════════════════════════════ -->
+  <a href="https://wa.me/22788490399?text=Bonjour%20U.M.A%20Niger%2C%20j'ai%20une%20question%20concernant%20l'immobilier."
+     target="_blank" rel="noopener noreferrer"
+     class="whatsapp-float"
+     aria-label="Nous contacter sur WhatsApp">
+    <span class="wa-tooltip">Écrire sur WhatsApp</span>
+    <svg class="relative z-10 w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════════════════ -->
+  <script src="js/main.js"></script>
+  <script>
+    /* ── Année footer ── */
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    /* ══════════════════════════════════════════════════════
+       FILTRE ANNONCES IMMOBILIÈRES
+       Affiche/cache les cartes selon le bouton actif.
+    ══════════════════════════════════════════════════════ */
+    (function () {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const biens      = document.querySelectorAll('#biens-grid article');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          /* Mise à jour du bouton actif */
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.dataset.filter;
+
+          biens.forEach(card => {
+            const type = card.dataset.type;
+            const show = filter === 'all' || type === filter;
+
+            if (show) {
+              card.style.display = '';
+              /* Légère animation de réapparition */
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(12px)';
+              requestAnimationFrame(() => {
+                card.style.transition = 'opacity .3s ease, transform .3s ease';
+                card.style.opacity    = '1';
+                card.style.transform  = 'translateY(0)';
+              });
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          /* Mise à jour du compteur */
+          const visible = [...biens].filter(c => c.style.display !== 'none').length;
+          document.querySelector('.annonce-count-badge').innerHTML =
+            `<i class="fa-solid fa-layer-group"></i> ${visible} annonce${visible > 1 ? 's' : ''} disponible${visible > 1 ? 's' : ''}`;
+        });
+      });
+
+      /* ── Boutons favori (toggle cœur décoratif) ── */
+      document.querySelectorAll('.btn-fav').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const icon = btn.querySelector('i');
+          if (icon.classList.contains('fa-regular')) {
+            icon.classList.replace('fa-regular', 'fa-solid');
+            icon.style.color = '#EF4444';
+          } else {
+            icon.classList.replace('fa-solid', 'fa-regular');
+            icon.style.color = '';
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
